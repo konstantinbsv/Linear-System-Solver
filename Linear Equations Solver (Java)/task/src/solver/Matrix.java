@@ -56,4 +56,16 @@ class Matrix {
             System.out.println();
         }
     }
+
+    public void printConstantTerms(boolean verticalVectorOutput) {
+        for (int row = 1; row <= matrixSize; row++) {
+            System.out.print(this.getRow(row).getConstantTerm());
+            if (verticalVectorOutput) {
+                System.out.println();
+            }
+            else {
+                System.out.print(" ");
+            }
+        }
+    }
 }
