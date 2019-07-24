@@ -50,6 +50,12 @@ class LinearEquation {
         }
     }
 
+    public void print() {
+        for (int i = 0; i < equationLength; i++) {
+            System.out.print(equation[i] + " ");
+        }
+    }
+
 
 
 }
