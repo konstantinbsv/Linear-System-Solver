@@ -370,6 +370,7 @@
               <option name="id" value="40" />
               <option name="ideFiles" value="https://stepik.org/media/attachments/lesson/203891/additional_files.json" />
               <option name="language" value="java" />
+              <option name="templateBased" value="false" />
               <option name="title" value="Linear Equations Solver (Java)" />
               <option name="useIde" value="true" />
             </HyperskillProject>
