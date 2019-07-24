@@ -38,15 +38,11 @@ class LinearEquation {
         }
     }
 
-    public void fillEquationFromFile(File file) {
-        try (Scanner scanner = new Scanner(file)) {
-            int i = 0;
-            while (scanner.hasNext() && i < equationLength) {
-                equation[i] = scanner.nextDouble();
-                i++;
-            }
-        } catch (FileNotFoundException fileException) {
-            System.out.print("File not found" + file);
+    public void fillEquationFromScanner(Scanner scanner) {
+        int i = 0;
+        while (scanner.hasNext() && i < equationLength) {
+            equation[i] = scanner.nextDouble();
+            i++;
         }
     }
 
