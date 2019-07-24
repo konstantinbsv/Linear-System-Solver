@@ -549,7 +549,7 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="false" />
+                                <option name="highlightErrors" value="true" />
                                 <option name="name" value="src/solver/Matrix.java" />
                                 <option name="text" value="" />
                                 <option name="trackChanges" value="true" />
