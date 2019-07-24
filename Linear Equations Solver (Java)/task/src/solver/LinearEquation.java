@@ -6,9 +6,11 @@ import java.util.Scanner;
 
 class LinearEquation {
     private double[] equation;
+    private int equationLength;
 
     public LinearEquation(int numOfCoeffs) {
-        equation = new double[numOfCoeffs+1];
+        equationLength = numOfCoeffs + 1; // +1 for constant
+        equation = new double[equationLength];
     }
 
     public double[] getEquation() {
@@ -16,12 +18,12 @@ class LinearEquation {
     }
 
     public void multiply(double x) {
-        for (int i = 0; i < equation.length; i++) {
+        for (int i = 0; i < equationLength; i++) {
             equation[i] *= x;
         }
     }
     public void add(double x) {
-        for (int i = 0; i < equation.length; i++) {
+        for (int i = 0; i < equationLength; i++) {
             equation[i] += x;
         }
     }
@@ -29,7 +31,7 @@ class LinearEquation {
     public void fillEquationFromFile(File file) {
         try (Scanner scanner = new Scanner(file)) {
             int i = 0;
-            while (scanner.hasNext() && i < equation.length) {
+            while (scanner.hasNext() && i < equationLength) {
                 equation[i] = scanner.nextDouble();
                 i++;
             }
