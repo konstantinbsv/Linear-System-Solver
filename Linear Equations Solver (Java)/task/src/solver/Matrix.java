@@ -32,7 +32,11 @@ class Matrix {
     }
 
     public LinearEquation getRow(int row) {
-        return matrix[row];
+        if (row < 1 || row > matrixSize) {
+            throw new IndexOutOfBoundsException("Invalid row index: " + row);
+        }
+
+        return matrix[row-1];
     }
 
     public void print() {

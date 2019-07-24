@@ -18,7 +18,11 @@ class LinearEquation {
     }
 
     public double getTerm(int i) {
-        return equation[i];
+        if (i < 1 || i > equationLength) {
+            throw new IndexOutOfBoundsException("Invalid term index: " + i);
+        }
+
+        return equation[i-1];
     }
 
     public void multiply(double x) {
