@@ -34,4 +34,11 @@ class Matrix {
     public LinearEquation getRow(int row) {
         return matrix[row];
     }
+
+    public void print() {
+        for (int i = 0; i < matrixSize; i++) {
+            matrix[i].print();
+            System.out.println();
+        }
+    }
 }
