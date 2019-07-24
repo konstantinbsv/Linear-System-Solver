@@ -79,4 +79,5 @@ fabric.properties
 .DS_Store
 /build
 /captures
-.externalNativeBuild
+/Linear Equations Solver (Java)/task/build
+/Linear Equations Solver (Java)/task/test
