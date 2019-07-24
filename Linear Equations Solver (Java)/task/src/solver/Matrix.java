@@ -19,7 +19,7 @@ class Matrix {
 
             for (int i = 0; i < matrixSize; i++) {
                 matrix[i] = new LinearEquation(matrixSize); // initialize LE
-                matrix[i].fillEquationFromFile(inputFile);  // fill from file
+                matrix[i].fillEquationFromScanner(scanner);  // fill from file
             }
 
         } catch (FileNotFoundException fileNotFound) {
