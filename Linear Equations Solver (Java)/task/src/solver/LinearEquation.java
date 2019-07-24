@@ -17,14 +17,24 @@ class LinearEquation {
         return equation;
     }
 
+    public double getTerm(int i) {
+        return equation[i];
+    }
+
     public void multiply(double x) {
         for (int i = 0; i < equationLength; i++) {
             equation[i] *= x;
         }
     }
-    public void add(double x) {
+    public void addRow(LinearEquation secondEquation) {
         for (int i = 0; i < equationLength; i++) {
-            equation[i] += x;
+            equation[i] += secondEquation.getTerm(i);
+        }
+    }
+
+    public void subRow(LinearEquation secondEquation) {
+        for (int i = 0; i < equationLength; i++) {
+            equation[i] -= secondEquation.getTerm(i);
         }
     }
 
