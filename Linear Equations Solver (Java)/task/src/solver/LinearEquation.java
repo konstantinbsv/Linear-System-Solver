@@ -2,6 +2,7 @@ package solver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 class LinearEquation {
@@ -25,18 +26,44 @@ class LinearEquation {
         return equation[i-1];
     }
 
-    public void multiply(double x) {
-        for (int i = 0; i < equationLength; i++) {
-            equation[i] *= x;
+    public void multiplyRowAndSave(double x) {
+        if (x != 1) {
+            for (int i = 0; i < equationLength; i++) {
+                equation[i] *= x;
+            }
         }
     }
-    public void addRow(LinearEquation secondEquation) {
+
+    public double[] multiplyRowTemp(double x) {
+        double[] result = new double[equationLength];
+        for (int i = 0; i < equationLength; i++) {
+            result[i] = equation[i] *x;
+        }
+
+        return result;
+    }
+
+    public void addToRow(LinearEquation secondEquation) {
+        if (secondEquation.equationLength != equationLength) {
+            throw new InputMismatchException("Linear equations are of unequal size");
+        }
+
         for (int i = 0; i < equationLength; i++) {
             equation[i] += secondEquation.getTerm(i);
         }
     }
 
-    public void subRow(LinearEquation secondEquation) {
+    public void addToRow(double[] secondEquation) {
+        if (secondEquation.length != equationLength) {
+            throw new InputMismatchException("Linear equations are of unequal size");
+        }
+
+        for (int i = 0; i < equationLength; i++) {
+            equation[i] += secondEquation[i];
+        }
+    }
+
+    public void subFromRow(LinearEquation secondEquation) {
         for (int i = 0; i < equationLength; i++) {
             equation[i] -= secondEquation.getTerm(i);
         }
