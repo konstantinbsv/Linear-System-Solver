@@ -15,7 +15,16 @@ class LinearEquation {
         return equation;
     }
 
-
+    public void multiply(double x) {
+        for (int i = 0; i < equation.length; i++) {
+            equation[i] *= x;
+        }
+    }
+    public void add(double x) {
+        for (int i = 0; i < equation.length; i++) {
+            equation[i] += x;
+        }
+    }
 
     public void fillEquationFromFile(File file) {
         try (Scanner scanner = new Scanner(file)) {
