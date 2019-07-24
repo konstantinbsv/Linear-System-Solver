@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SolverTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-07-18T17:31:58" hostname="LAPTOP-H3MHOHJF" time="0.08">
+  <properties/>
+  <testcase name="start" classname="SolverTest" time="0.08"/>
+  <system-out><![CDATA[0.8571428571428571 0.7142857142857143-1.0 2.0-0.5458015267175561 1.83969465648854921.0000000000000002 1.3144458281444584]]></system-out>
+  <system-err><![CDATA[Start test 1
+Start test 2
+Start test 3
+Start test 4
+]]></system-err>
+</testsuite>
