@@ -26,6 +26,10 @@ class LinearEquation {
         return equation[i-1];
     }
 
+    public double getConstantTerm() {
+        return equation[equationLength-1];
+    }
+
     public void multiplyRowAndSave(double x) {
         if (x != 1) {
             for (int i = 0; i < equationLength; i++) {
