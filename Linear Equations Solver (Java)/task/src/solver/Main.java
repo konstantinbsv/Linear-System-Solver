@@ -34,8 +34,7 @@ class Main {
             for (int currentRow = pivot+1; currentRow <= system.getMatrixSize(); currentRow++) {
                 double factor = -system.getTerm(currentRow, pivot)/system.getTerm(pivot, pivot);
 
-                System.out.print(factor <0 ? "-":" "); // neater formatting
-                System.out.printf("%.2f * R%d + R%d -> R%d\n", Math.abs(factor), pivot, currentRow, currentRow);
+                printRowOp(pivot, currentRow, factor);
                 system.getRow(currentRow).addToRow(system.getRow(pivot).multiplyRowTemp(factor));
             }
         }
@@ -49,12 +48,16 @@ class Main {
             for (int currentRow = currentColumn - 1; currentRow > 0; currentRow--) {
                 double factor = -system.getTerm(currentRow, currentColumn);
 
-                System.out.print(factor <0 ? "-":" "); // neater formatting
-                System.out.printf("%.2f * R%d + R%d -> R%d\n", Math.abs(factor), currentColumn, currentRow, currentRow);
+                printRowOp(currentColumn, currentRow, factor);
                 system.getRow(currentRow).addToRow( system.getRow(currentColumn).multiplyRowTemp(factor) );
             }
         }
         System.out.println("-----Reduced Row Echelon / Final Result----");
         system.print();
+    }
+
+    private static void printRowOp(int currentColumn, int currentRow, double factor) {
+        System.out.print(factor < 0 ? "-" : " "); // neater formatting
+        System.out.printf("%.2f * R%d + R%d -> R%d\n", Math.abs(factor), currentColumn, currentRow, currentRow);
     }
 }
