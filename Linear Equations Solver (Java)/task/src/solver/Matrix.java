@@ -39,6 +39,17 @@ class Matrix {
         return matrix[row-1];
     }
 
+    public double getTerm(int row, int column) {
+        if (row < 1 || row > matrixSize) {
+            throw new IndexOutOfBoundsException("Invalid row index: " + row);
+        }
+        if (column < 1 || column > matrixSize) {
+            throw new IndexOutOfBoundsException("Invalid column index: " + column);
+        }
+
+        return matrix[row-1].getTerm(column);
+    }
+
     public void print() {
         for (int i = 0; i < matrixSize; i++) {
             matrix[i].print();
