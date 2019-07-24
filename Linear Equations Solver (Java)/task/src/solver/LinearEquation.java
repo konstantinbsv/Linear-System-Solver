@@ -79,7 +79,8 @@ class LinearEquation {
 
     public void print() {
         for (int i = 0; i < equationLength; i++) {
-            System.out.print(equation[i] + " ");
+            System.out.print(equation[i] < 0 ? "-":" "); // neater formatting
+            System.out.print(Math.abs(equation[i]) + " ");
         }
     }
 
