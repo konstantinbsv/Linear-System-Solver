@@ -177,6 +177,16 @@
                 <value>
                   <list>
                     <HyperskillTopic>
+                      <option name="id" value="502" />
+                      <option name="theoryId" value="6865" />
+                      <option name="title" value="Units of information" />
+                    </HyperskillTopic>
+                    <HyperskillTopic>
+                      <option name="id" value="362" />
+                      <option name="theoryId" value="5544" />
+                      <option name="title" value="Binary numbers" />
+                    </HyperskillTopic>
+                    <HyperskillTopic>
                       <option name="id" value="60" />
                       <option name="theoryId" value="3497" />
                       <option name="title" value="What is an exception" />
@@ -207,16 +217,6 @@
                       <option name="title" value="Writing files" />
                     </HyperskillTopic>
                     <HyperskillTopic>
-                      <option name="id" value="161" />
-                      <option name="theoryId" value="3532" />
-                      <option name="title" value="Sizes and ranges" />
-                    </HyperskillTopic>
-                    <HyperskillTopic>
-                      <option name="id" value="32" />
-                      <option name="theoryId" value="3510" />
-                      <option name="title" value="Type casting" />
-                    </HyperskillTopic>
-                    <HyperskillTopic>
                       <option name="id" value="309" />
                       <option name="theoryId" value="5035" />
                       <option name="title" value="Primitive and reference types" />
@@ -225,6 +225,16 @@
                       <option name="id" value="4" />
                       <option name="theoryId" value="3511" />
                       <option name="title" value="Array" />
+                    </HyperskillTopic>
+                    <HyperskillTopic>
+                      <option name="id" value="161" />
+                      <option name="theoryId" value="3532" />
+                      <option name="title" value="Sizes and ranges" />
+                    </HyperskillTopic>
+                    <HyperskillTopic>
+                      <option name="id" value="32" />
+                      <option name="theoryId" value="3510" />
+                      <option name="title" value="Type casting" />
                     </HyperskillTopic>
                     <HyperskillTopic>
                       <option name="id" value="163" />
@@ -265,16 +275,6 @@
                       <option name="id" value="97" />
                       <option name="theoryId" value="3602" />
                       <option name="title" value="Iterating over arrays" />
-                    </HyperskillTopic>
-                    <HyperskillTopic>
-                      <option name="id" value="12" />
-                      <option name="theoryId" value="1933" />
-                      <option name="title" value="Multi-dimensional array" />
-                    </HyperskillTopic>
-                    <HyperskillTopic>
-                      <option name="id" value="94" />
-                      <option name="theoryId" value="3590" />
-                      <option name="title" value="Defining methods" />
                     </HyperskillTopic>
                   </list>
                 </value>
@@ -400,7 +400,7 @@
                       <option name="id" value="5305" />
                       <option name="index" value="1" />
                       <option name="name" value="Simple and real" />
-                      <option name="record" value="1" />
+                      <option name="record" value="4" />
                       <option name="status" value="Solved" />
                       <option name="files">
                         <map>
@@ -410,7 +410,7 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="true" />
+                                <option name="highlightErrors" value="false" />
                                 <option name="name" value="src/solver/Main.java" />
                                 <option name="text" value="package solver;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        System.out.println(&quot;Hello World!&quot;);&#10;    }&#10;}&#10;" />
                                 <option name="trackChanges" value="true" />
@@ -473,9 +473,9 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="true" />
+                                <option name="highlightErrors" value="false" />
                                 <option name="name" value="src/solver/Main.java" />
-                                <option name="text" value="package solver;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        System.out.println(&quot;Hello World!&quot;);&#10;    }&#10;}&#10;" />
+                                <option name="text" value="package solver;&#10;import java.util.Scanner;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        Scanner scanner = new Scanner(System.in);&#10;&#10;        //y = a*x + b&#10;        double a = scanner.nextDouble();&#10;        double y = scanner.nextDouble();&#10;&#10;        double x = y/a;&#10;        System.out.println(x);&#10;    }&#10;}&#10;" />
                                 <option name="trackChanges" value="true" />
                                 <option name="visible" value="true" />
                               </TaskFile>
@@ -498,8 +498,8 @@
                       <option name="id" value="5307" />
                       <option name="index" value="3" />
                       <option name="name" value="Equations" />
-                      <option name="record" value="-1" />
-                      <option name="status" value="Unchecked" />
+                      <option name="record" value="3" />
+                      <option name="status" value="Solved" />
                       <option name="files">
                         <map>
                           <entry key="test/SolverTest.java">
@@ -522,22 +522,22 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="true" />
+                                <option name="highlightErrors" value="false" />
                                 <option name="name" value="src/solver/Main.java" />
-                                <option name="text" value="package solver;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        System.out.println(&quot;Hello World!&quot;);&#10;    }&#10;}&#10;" />
+                                <option name="text" value="package solver;&#10;import java.util.Scanner;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        Scanner scanner = new Scanner(System.in);&#10;&#10;        //y = a*x + b&#10;        double a = scanner.nextDouble();&#10;        double b = scanner.nextDouble();&#10;        double c = scanner.nextDouble();&#10;&#10;        double d = scanner.nextDouble();&#10;        double e = scanner.nextDouble();&#10;        double f = scanner.nextDouble();&#10;&#10;        double y = (f - c*d/a)/(e - b*d/a);&#10;        double x = (c - b*y)/a;&#10;&#10;        System.out.print(x + &quot; &quot; + y);&#10;    }&#10;}&#10;" />
                                 <option name="trackChanges" value="true" />
                                 <option name="visible" value="true" />
                               </TaskFile>
                             </value>
                           </entry>
-                          <entry key="src/solver/LinearEquation.java">
+                          <entry key="output.txt">
                             <value>
                               <TaskFile>
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="true" />
-                                <option name="name" value="src/solver/LinearEquation.java" />
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="output.txt" />
                                 <option name="text" value="" />
                                 <option name="trackChanges" value="true" />
                                 <option name="visible" value="true" />
@@ -550,7 +550,7 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="true" />
+                                <option name="highlightErrors" value="false" />
                                 <option name="name" value="src/solver/Matrix.java" />
                                 <option name="text" value="" />
                                 <option name="trackChanges" value="true" />
@@ -558,14 +558,28 @@
                               </TaskFile>
                             </value>
                           </entry>
-                          <entry key="src/solver/in.txt">
+                          <entry key="src/solver/LinearEquation.java">
                             <value>
                               <TaskFile>
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
                                 <option name="highlightErrors" value="false" />
-                                <option name="name" value="src/solver/in.txt" />
+                                <option name="name" value="src/solver/LinearEquation.java" />
+                                <option name="text" value="" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="out.txt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="out.txt" />
                                 <option name="text" value="" />
                                 <option name="trackChanges" value="true" />
                                 <option name="visible" value="true" />
@@ -589,8 +603,8 @@
                       <option name="id" value="5308" />
                       <option name="index" value="4" />
                       <option name="name" value="When things get complicated" />
-                      <option name="record" value="-1" />
-                      <option name="status" value="Unchecked" />
+                      <option name="record" value="1" />
+                      <option name="status" value="Failed" />
                       <option name="files">
                         <map>
                           <entry key="test/SolverTest.java">
@@ -615,7 +629,63 @@
                                 </option>
                                 <option name="highlightErrors" value="false" />
                                 <option name="name" value="src/solver/Main.java" />
-                                <option name="text" value="package solver;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        System.out.println(&quot;Hello World!&quot;);&#10;    }&#10;}&#10;" />
+                                <option name="text" value="package solver;&#10;&#10;import java.io.File;&#10;import java.io.FileNotFoundException;&#10;import java.io.PrintWriter;&#10;&#10;public class Main {&#10;&#10;    public static void main(String[] args) {&#10;&#10;        if (args.length != 4 || !&quot;-in&quot;.equals(args[0]) &amp;&amp; !&quot;-out&quot;.equals(args[2])) {&#10;            System.out.println(&quot;Syntax: -in &lt;inputfile.txt&gt; -out &lt;outputfile.txt&gt;&quot;);&#10;            System.exit(-1);&#10;        }&#10;&#10;        File inputFile = new File(args[1]);&#10;        System.out.println(inputFile);&#10;&#10;        Matrix system = new Matrix(inputFile);&#10;&#10;        System.out.println(&quot;-----Input matrix----&quot;);&#10;        system.print();&#10;        System.out.println(&quot;-----Performing Gaussian elimination----&quot;);&#10;&#10;        // Get Row Echelon Form through Gaussian elimination&#10;        for (int pivot = 1; pivot &lt;= system.getMatrixSize(); pivot++) {&#10;&#10;            // multiply pivot by factor that makes it =1&#10;            double normalizationFactor = 1/system.getTerm(pivot, pivot);&#10;            system.getRow(pivot).multiplyRowAndSave(normalizationFactor);&#10;            System.out.print(normalizationFactor &lt;0 ? &quot;-&quot;:&quot; &quot;); // neater formatting&#10;            System.out.printf(&quot;%.2f * R%d -&gt; R%d\n&quot;, Math.abs(normalizationFactor), pivot, pivot);&#10;&#10;&#10;            // Perform row ops to get all terms below it =0&#10;            for (int currentRow = pivot+1; currentRow &lt;= system.getMatrixSize(); currentRow++) {&#10;                double factor = -system.getTerm(currentRow, pivot)/system.getTerm(pivot, pivot);&#10;&#10;                printRowOp(pivot, currentRow, factor);&#10;                system.getRow(currentRow).addToRow(system.getRow(pivot).multiplyRowTemp(factor));&#10;            }&#10;        }&#10;&#10;        System.out.println(&quot;-----Row Echelon----&quot;);&#10;        system.print();&#10;        System.out.println(&quot;-----Performing Gauss-Jordan elimination----&quot;);&#10;&#10;        // perform Gauss-Jordan elimination for Reduced Row Echelon Form&#10;        for (int currentColumn = system.getMatrixSize(); currentColumn &gt; 0; currentColumn--) {&#10;            for (int currentRow = currentColumn - 1; currentRow &gt; 0; currentRow--) {&#10;                double factor = -system.getTerm(currentRow, currentColumn);&#10;&#10;                printRowOp(currentColumn, currentRow, factor);&#10;                system.getRow(currentRow).addToRow( system.getRow(currentColumn).multiplyRowTemp(factor) );&#10;            }&#10;        }&#10;        System.out.println(&quot;-----Reduced Row Echelon----&quot;);&#10;        system.print();&#10;&#10;        System.out.println(&quot;-----Final Result----&quot;);&#10;        system.printConstantTerms(true);&#10;&#10;        // Save results to file&#10;        File outputFile = new File(args[3]);&#10;        try (PrintWriter printWriter = new PrintWriter(outputFile)) {&#10;            for (int row = 1; row &lt;= system.getMatrixSize(); row++) {&#10;                printWriter.print(system.getRow(row).getConstantTerm());&#10;                printWriter.println();&#10;            }&#10;            System.out.println(&quot;Results saved to: &quot; + args[3]);&#10;        } catch (FileNotFoundException fileNotFound) {&#10;            System.out.println(&quot;Output file exception: &quot; + fileNotFound.getMessage());&#10;        }&#10;    }&#10;&#10;    private static void printRowOp(int currentColumn, int currentRow, double factor) {&#10;        System.out.print(factor &lt; 0 ? &quot;-&quot; : &quot; &quot;); // neater formatting&#10;        System.out.printf(&quot;%.2f * R%d + R%d -&gt; R%d\n&quot;, Math.abs(factor), currentColumn, currentRow, currentRow);&#10;    }&#10;}" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="src/solver/Matrix.java">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="src/solver/Matrix.java" />
+                                <option name="text" value="package solver;&#10;&#10;import java.io.File;&#10;import java.io.FileNotFoundException;&#10;import java.util.Scanner;&#10;&#10;class Matrix {&#10;    private int matrixSize;&#10;    private LinearEquation[] matrix;&#10;&#10;    public Matrix(File inputFile) {&#10;        try (Scanner scanner = new Scanner(inputFile)) {&#10;            matrixSize = scanner.nextInt(); // first line of file is matrix size&#10;            if (matrixSize &lt; 1) {&#10;                throw new IndexOutOfBoundsException(&quot;Invalid matrix size: &quot; + matrixSize);&#10;            }&#10;&#10;            matrix = new LinearEquation[matrixSize];&#10;&#10;            for (int i = 0; i &lt; matrixSize; i++) {&#10;                matrix[i] = new LinearEquation(matrixSize); // initialize LE&#10;                matrix[i].fillEquationFromScanner(scanner);  // fill from file&#10;            }&#10;&#10;        } catch (FileNotFoundException fileNotFound) {&#10;            System.out.println(&quot;File not found: &quot; + inputFile);&#10;        }&#10;    }&#10;&#10;    public int getMatrixSize() {&#10;        return matrixSize;&#10;    }&#10;&#10;    public LinearEquation getRow(int row) {&#10;        if (row &lt; 1 || row &gt; matrixSize) {&#10;            throw new IndexOutOfBoundsException(&quot;Invalid row index: &quot; + row);&#10;        }&#10;&#10;        return matrix[row-1];&#10;    }&#10;&#10;    public double getTerm(int row, int column) {&#10;        if (row &lt; 1 || row &gt; matrixSize) {&#10;            throw new IndexOutOfBoundsException(&quot;Invalid row index: &quot; + row);&#10;        }&#10;        if (column &lt; 1 || column &gt; matrixSize) {&#10;            throw new IndexOutOfBoundsException(&quot;Invalid column index: &quot; + column);&#10;        }&#10;&#10;        return matrix[row-1].getTerm(column);&#10;    }&#10;&#10;    public void print() {&#10;        for (int i = 0; i &lt; matrixSize; i++) {&#10;            matrix[i].print();&#10;            System.out.println();&#10;        }&#10;    }&#10;&#10;    public void printConstantTerms(boolean verticalVectorOutput) {&#10;        for (int row = 1; row &lt;= matrixSize; row++) {&#10;            System.out.print(this.getRow(row).getConstantTerm());&#10;            if (verticalVectorOutput) {&#10;                System.out.println();&#10;            }&#10;            else {&#10;                System.out.print(&quot; &quot;);&#10;            }&#10;        }&#10;    }&#10;}&#10;" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="src/solver/LinearEquation.java">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="src/solver/LinearEquation.java" />
+                                <option name="text" value="package solver;&#10;&#10;import java.io.File;&#10;import java.io.FileNotFoundException;&#10;import java.util.InputMismatchException;&#10;import java.util.Scanner;&#10;&#10;class LinearEquation {&#10;    private double[] equation;&#10;    private int equationLength;&#10;&#10;    public LinearEquation(int numOfCoeffs) {&#10;        equationLength = numOfCoeffs + 1; // +1 for constant&#10;        equation = new double[equationLength];&#10;    }&#10;&#10;    public double[] getEquation() {&#10;        return equation;&#10;    }&#10;&#10;    public double getTerm(int i) {&#10;        if (i &lt; 1 || i &gt; equationLength) {&#10;            throw new IndexOutOfBoundsException(&quot;Invalid term index: &quot; + i);&#10;        }&#10;&#10;        return equation[i-1];&#10;    }&#10;&#10;    public double getConstantTerm() {&#10;        return equation[equationLength-1];&#10;    }&#10;&#10;    public void multiplyRowAndSave(double x) {&#10;        if (x != 1) {&#10;            for (int i = 0; i &lt; equationLength; i++) {&#10;                equation[i] *= x;&#10;            }&#10;        }&#10;    }&#10;&#10;    public double[] multiplyRowTemp(double x) {&#10;        double[] result = new double[equationLength];&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            result[i] = equation[i] *x;&#10;        }&#10;&#10;        return result;&#10;    }&#10;&#10;    public void addToRow(LinearEquation secondEquation) {&#10;        if (secondEquation.equationLength != equationLength) {&#10;            throw new InputMismatchException(&quot;Linear equations are of unequal size&quot;);&#10;        }&#10;&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            equation[i] += secondEquation.getTerm(i);&#10;        }&#10;    }&#10;&#10;    public void addToRow(double[] secondEquation) {&#10;        if (secondEquation.length != equationLength) {&#10;            throw new InputMismatchException(&quot;Linear equations are of unequal size&quot;);&#10;        }&#10;&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            equation[i] += secondEquation[i];&#10;        }&#10;    }&#10;&#10;    public void subFromRow(LinearEquation secondEquation) {&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            equation[i] -= secondEquation.getTerm(i);&#10;        }&#10;    }&#10;&#10;    public void fillEquationFromScanner(Scanner scanner) {&#10;        int i = 0;&#10;        while (scanner.hasNext() &amp;&amp; i &lt; equationLength) {&#10;            equation[i] = scanner.nextDouble();&#10;            i++;&#10;        }&#10;    }&#10;&#10;    public void print() {&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            System.out.print(equation[i] &lt; 0 ? &quot;-&quot;:&quot; &quot;); // neater formatting&#10;            System.out.print(Math.abs(equation[i]) + &quot; &quot;);&#10;        }&#10;    }&#10;&#10;&#10;&#10;}&#10;" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="output.txt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="output.txt" />
+                                <option name="text" value="1.0&#10;1.0&#10;" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="out.txt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="out.txt" />
+                                <option name="text" value="0.21820058234236628&#10;0.3886357097624834&#10;0.23368846425838719&#10;0.5804130341264052&#10;-0.18672509518968147&#10;0.3535599775759408&#10;-0.5596661622084&#10;-0.4705713304968078&#10;-0.3945589792856363&#10;-0.4577408854539388&#10;0.37104469570723414&#10;-0.19593567201468653&#10;1.1402904217137695&#10;0.28081610303503995&#10;-0.8712103045039057&#10;-0.33548695376011833&#10;-0.13089208871106728&#10;-0.30079933743684717&#10;0.6354996520637768&#10;0.47156285858409724&#10;" />
                                 <option name="trackChanges" value="true" />
                                 <option name="visible" value="true" />
                               </TaskFile>
@@ -664,7 +734,63 @@
                                 </option>
                                 <option name="highlightErrors" value="false" />
                                 <option name="name" value="src/solver/Main.java" />
-                                <option name="text" value="package solver;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        System.out.println(&quot;Hello World!&quot;);&#10;    }&#10;}&#10;" />
+                                <option name="text" value="package solver;&#10;&#10;import java.io.File;&#10;import java.io.FileNotFoundException;&#10;import java.io.PrintWriter;&#10;&#10;public class Main {&#10;&#10;    public static void main(String[] args) {&#10;&#10;        if (args.length != 4 || !&quot;-in&quot;.equals(args[0]) &amp;&amp; !&quot;-out&quot;.equals(args[2])) {&#10;            System.out.println(&quot;Syntax: -in &lt;inputfile.txt&gt; -out &lt;outputfile.txt&gt;&quot;);&#10;            System.exit(-1);&#10;        }&#10;&#10;        File inputFile = new File(args[1]);&#10;        System.out.println(inputFile);&#10;&#10;        Matrix system = new Matrix(inputFile);&#10;&#10;        System.out.println(&quot;-----Input matrix----&quot;);&#10;        system.print();&#10;        System.out.println(&quot;-----Performing Gaussian elimination----&quot;);&#10;&#10;        // Get Row Echelon Form through Gaussian elimination&#10;        for (int pivot = 1; pivot &lt;= system.getMatrixSize(); pivot++) {&#10;&#10;            // multiply pivot by factor that makes it =1&#10;            double normalizationFactor = 1/system.getTerm(pivot, pivot);&#10;            system.getRow(pivot).multiplyRowAndSave(normalizationFactor);&#10;            System.out.print(normalizationFactor &lt;0 ? &quot;-&quot;:&quot; &quot;); // neater formatting&#10;            System.out.printf(&quot;%.2f * R%d -&gt; R%d\n&quot;, Math.abs(normalizationFactor), pivot, pivot);&#10;&#10;&#10;            // Perform row ops to get all terms below it =0&#10;            for (int currentRow = pivot+1; currentRow &lt;= system.getMatrixSize(); currentRow++) {&#10;                double factor = -system.getTerm(currentRow, pivot)/system.getTerm(pivot, pivot);&#10;&#10;                printRowOp(pivot, currentRow, factor);&#10;                system.getRow(currentRow).addToRow(system.getRow(pivot).multiplyRowTemp(factor));&#10;            }&#10;        }&#10;&#10;        System.out.println(&quot;-----Row Echelon----&quot;);&#10;        system.print();&#10;        System.out.println(&quot;-----Performing Gauss-Jordan elimination----&quot;);&#10;&#10;        // perform Gauss-Jordan elimination for Reduced Row Echelon Form&#10;        for (int currentColumn = system.getMatrixSize(); currentColumn &gt; 0; currentColumn--) {&#10;            for (int currentRow = currentColumn - 1; currentRow &gt; 0; currentRow--) {&#10;                double factor = -system.getTerm(currentRow, currentColumn);&#10;&#10;                printRowOp(currentColumn, currentRow, factor);&#10;                system.getRow(currentRow).addToRow( system.getRow(currentColumn).multiplyRowTemp(factor) );&#10;            }&#10;        }&#10;        System.out.println(&quot;-----Reduced Row Echelon----&quot;);&#10;        system.print();&#10;&#10;        System.out.println(&quot;-----Final Result----&quot;);&#10;        system.printConstantTerms(true);&#10;&#10;        // Save results to file&#10;        File outputFile = new File(args[3]);&#10;        try (PrintWriter printWriter = new PrintWriter(outputFile)) {&#10;            for (int row = 1; row &lt;= system.getMatrixSize(); row++) {&#10;                printWriter.print(system.getRow(row).getConstantTerm());&#10;                printWriter.println();&#10;            }&#10;            System.out.println(&quot;Results saved to: &quot; + args[3]);&#10;        } catch (FileNotFoundException fileNotFound) {&#10;            System.out.println(&quot;Output file exception: &quot; + fileNotFound.getMessage());&#10;        }&#10;    }&#10;&#10;    private static void printRowOp(int currentColumn, int currentRow, double factor) {&#10;        System.out.print(factor &lt; 0 ? &quot;-&quot; : &quot; &quot;); // neater formatting&#10;        System.out.printf(&quot;%.2f * R%d + R%d -&gt; R%d\n&quot;, Math.abs(factor), currentColumn, currentRow, currentRow);&#10;    }&#10;}" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="src/solver/Matrix.java">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="src/solver/Matrix.java" />
+                                <option name="text" value="package solver;&#10;&#10;import java.io.File;&#10;import java.io.FileNotFoundException;&#10;import java.util.Scanner;&#10;&#10;class Matrix {&#10;    private int matrixSize;&#10;    private LinearEquation[] matrix;&#10;&#10;    public Matrix(File inputFile) {&#10;        try (Scanner scanner = new Scanner(inputFile)) {&#10;            matrixSize = scanner.nextInt(); // first line of file is matrix size&#10;            if (matrixSize &lt; 1) {&#10;                throw new IndexOutOfBoundsException(&quot;Invalid matrix size: &quot; + matrixSize);&#10;            }&#10;&#10;            matrix = new LinearEquation[matrixSize];&#10;&#10;            for (int i = 0; i &lt; matrixSize; i++) {&#10;                matrix[i] = new LinearEquation(matrixSize); // initialize LE&#10;                matrix[i].fillEquationFromScanner(scanner);  // fill from file&#10;            }&#10;&#10;        } catch (FileNotFoundException fileNotFound) {&#10;            System.out.println(&quot;File not found: &quot; + inputFile);&#10;        }&#10;    }&#10;&#10;    public int getMatrixSize() {&#10;        return matrixSize;&#10;    }&#10;&#10;    public LinearEquation getRow(int row) {&#10;        if (row &lt; 1 || row &gt; matrixSize) {&#10;            throw new IndexOutOfBoundsException(&quot;Invalid row index: &quot; + row);&#10;        }&#10;&#10;        return matrix[row-1];&#10;    }&#10;&#10;    public double getTerm(int row, int column) {&#10;        if (row &lt; 1 || row &gt; matrixSize) {&#10;            throw new IndexOutOfBoundsException(&quot;Invalid row index: &quot; + row);&#10;        }&#10;        if (column &lt; 1 || column &gt; matrixSize) {&#10;            throw new IndexOutOfBoundsException(&quot;Invalid column index: &quot; + column);&#10;        }&#10;&#10;        return matrix[row-1].getTerm(column);&#10;    }&#10;&#10;    public void print() {&#10;        for (int i = 0; i &lt; matrixSize; i++) {&#10;            matrix[i].print();&#10;            System.out.println();&#10;        }&#10;    }&#10;&#10;    public void printConstantTerms(boolean verticalVectorOutput) {&#10;        for (int row = 1; row &lt;= matrixSize; row++) {&#10;            System.out.print(this.getRow(row).getConstantTerm());&#10;            if (verticalVectorOutput) {&#10;                System.out.println();&#10;            }&#10;            else {&#10;                System.out.print(&quot; &quot;);&#10;            }&#10;        }&#10;    }&#10;}&#10;" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="src/solver/LinearEquation.java">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="src/solver/LinearEquation.java" />
+                                <option name="text" value="package solver;&#10;&#10;import java.io.File;&#10;import java.io.FileNotFoundException;&#10;import java.util.InputMismatchException;&#10;import java.util.Scanner;&#10;&#10;class LinearEquation {&#10;    private double[] equation;&#10;    private int equationLength;&#10;&#10;    public LinearEquation(int numOfCoeffs) {&#10;        equationLength = numOfCoeffs + 1; // +1 for constant&#10;        equation = new double[equationLength];&#10;    }&#10;&#10;    public double[] getEquation() {&#10;        return equation;&#10;    }&#10;&#10;    public double getTerm(int i) {&#10;        if (i &lt; 1 || i &gt; equationLength) {&#10;            throw new IndexOutOfBoundsException(&quot;Invalid term index: &quot; + i);&#10;        }&#10;&#10;        return equation[i-1];&#10;    }&#10;&#10;    public double getConstantTerm() {&#10;        return equation[equationLength-1];&#10;    }&#10;&#10;    public void multiplyRowAndSave(double x) {&#10;        if (x != 1) {&#10;            for (int i = 0; i &lt; equationLength; i++) {&#10;                equation[i] *= x;&#10;            }&#10;        }&#10;    }&#10;&#10;    public double[] multiplyRowTemp(double x) {&#10;        double[] result = new double[equationLength];&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            result[i] = equation[i] *x;&#10;        }&#10;&#10;        return result;&#10;    }&#10;&#10;    public void addToRow(LinearEquation secondEquation) {&#10;        if (secondEquation.equationLength != equationLength) {&#10;            throw new InputMismatchException(&quot;Linear equations are of unequal size&quot;);&#10;        }&#10;&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            equation[i] += secondEquation.getTerm(i);&#10;        }&#10;    }&#10;&#10;    public void addToRow(double[] secondEquation) {&#10;        if (secondEquation.length != equationLength) {&#10;            throw new InputMismatchException(&quot;Linear equations are of unequal size&quot;);&#10;        }&#10;&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            equation[i] += secondEquation[i];&#10;        }&#10;    }&#10;&#10;    public void subFromRow(LinearEquation secondEquation) {&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            equation[i] -= secondEquation.getTerm(i);&#10;        }&#10;    }&#10;&#10;    public void fillEquationFromScanner(Scanner scanner) {&#10;        int i = 0;&#10;        while (scanner.hasNext() &amp;&amp; i &lt; equationLength) {&#10;            equation[i] = scanner.nextDouble();&#10;            i++;&#10;        }&#10;    }&#10;&#10;    public void print() {&#10;        for (int i = 0; i &lt; equationLength; i++) {&#10;            System.out.print(equation[i] &lt; 0 ? &quot;-&quot;:&quot; &quot;); // neater formatting&#10;            System.out.print(Math.abs(equation[i]) + &quot; &quot;);&#10;        }&#10;    }&#10;&#10;&#10;&#10;}&#10;" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="output.txt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="output.txt" />
+                                <option name="text" value="1.0&#10;1.0&#10;" />
+                                <option name="trackChanges" value="true" />
+                                <option name="visible" value="true" />
+                              </TaskFile>
+                            </value>
+                          </entry>
+                          <entry key="out.txt">
+                            <value>
+                              <TaskFile>
+                                <option name="answerPlaceholders">
+                                  <list />
+                                </option>
+                                <option name="highlightErrors" value="false" />
+                                <option name="name" value="out.txt" />
+                                <option name="text" value="0.040000000000000036&#10;5.4399999999999995&#10;-3.56&#10;" />
                                 <option name="trackChanges" value="true" />
                                 <option name="visible" value="true" />
                               </TaskFile>

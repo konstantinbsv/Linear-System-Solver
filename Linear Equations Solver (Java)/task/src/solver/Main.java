@@ -1,8 +1,10 @@
 package solver;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
-class Main {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -52,8 +54,23 @@ class Main {
                 system.getRow(currentRow).addToRow( system.getRow(currentColumn).multiplyRowTemp(factor) );
             }
         }
-        System.out.println("-----Reduced Row Echelon / Final Result----");
+        System.out.println("-----Reduced Row Echelon----");
         system.print();
+
+        System.out.println("-----Final Result----");
+        system.printConstantTerms(true);
+
+        // Save results to file
+        File outputFile = new File(args[3]);
+        try (PrintWriter printWriter = new PrintWriter(outputFile)) {
+            for (int row = 1; row <= system.getMatrixSize(); row++) {
+                printWriter.print(system.getRow(row).getConstantTerm());
+                printWriter.println();
+            }
+            System.out.println("Results saved to: " + args[3]);
+        } catch (FileNotFoundException fileNotFound) {
+            System.out.println("Output file exception: " + fileNotFound.getMessage());
+        }
     }
 
     private static void printRowOp(int currentColumn, int currentRow, double factor) {

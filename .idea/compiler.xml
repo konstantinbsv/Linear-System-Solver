@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="Linear_Equations_Solver_(Java)-task_main" target="11" />
-      <module name="Linear_Equations_Solver_(Java)-task_test" target="11" />
+      <module name="Linear_Equations_Solver__Java_-task_main" target="11" />
+      <module name="Linear_Equations_Solver__Java_-task_test" target="11" />
       <module name="util_main" target="11" />
       <module name="util_test" target="11" />
     </bytecodeTargetLevel>
