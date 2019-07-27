@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -50,7 +51,13 @@ public class Main {
                 // if there are no non-zero terms in this column
                 if (newRow == -1) {
                     // find element in next column and swap columns
-
+                    int rowToSwap = system.findLeadingNonZeroCol();
+                    if (rowToSwap == -1) {
+                        // no more columns with non-zero elements
+                        System.out.println("No more columns with non-zero elements");
+                    } else {
+                        executeCommand(new SwapColumns(system, pivot, rowToSwap));
+                    }
                 } else {
                     system.swapRows(pivot, newRow);
                 }

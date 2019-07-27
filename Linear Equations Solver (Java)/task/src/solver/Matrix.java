@@ -161,7 +161,7 @@ class SwapColumns implements Command {
 }
 
 class CommandHistory {
-    private static Stack<Command> commandHistory;
+    private static Stack<Command> commandHistory = new Stack<>();
 
     public static void push(Command command) {
         commandHistory.push(command);
