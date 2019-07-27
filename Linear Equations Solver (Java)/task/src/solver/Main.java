@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.logging.Logger;
 
 public class Main {
 
@@ -87,10 +86,17 @@ public class Main {
 
         System.out.println("-----Row Echelon----");
         system.print();
-        if (system.isContradicted()) {
-            System.out.println("No solutions");
+        if (system.isInconsistent()) {
+            System.out.println("No solutions - inconsistent");
             return;
         }
+        if (system.numOfFreeVariables() > 0) {
+            System.out.printf("Infinitely many solutions - has %d free variables\n" , system.numOfFreeVariables());
+            return;
+        }
+        //
+        while(undoCommand());
+
         System.out.println("-----Performing Gauss-Jordan elimination----");
 
         // perform Gauss-Jordan elimination for Reduced Row Echelon Form
@@ -132,7 +138,10 @@ public class Main {
         }
     }
 
-    private static void undoCommand() {
-        CommandHistory.pop().undo();
+    private static boolean undoCommand() {
+        if (!CommandHistory.isCommandHistoryEmpty()) {
+            return CommandHistory.pop().undo(); // true if undo successful
+        }
+        return false;
     }
 }
