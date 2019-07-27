@@ -2,7 +2,9 @@ package solver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 class Matrix {
     private int matrixSize;
@@ -129,8 +131,8 @@ class Matrix {
     }
 }
 interface Command {
-    void execute();
-    void undo();
+    boolean execute();
+    boolean undo();
 }
 
 class SwapColumns implements Command {
@@ -146,12 +148,30 @@ class SwapColumns implements Command {
     }
 
     @Override
-    public void execute() {
+    public boolean execute() {
         matrix.swapColumns(colOne, colTwo);
+        return true;
     }
 
     @Override
-    public void undo() {
+    public boolean undo() {
         matrix.swapRows(colOne, colTwo);
+        return true;
+    }
+}
+
+class CommandHistory {
+    private static Stack<Command> commandHistory;
+
+    public static void push(Command command) {
+        commandHistory.push(command);
+    }
+
+    public static Command pop() {
+        return commandHistory.pop();
+    }
+
+    public static boolean isCommandHistoryEmpty() {
+        return commandHistory.isEmpty();
     }
 }
