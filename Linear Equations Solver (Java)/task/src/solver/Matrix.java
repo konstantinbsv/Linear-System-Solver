@@ -98,8 +98,47 @@ class Matrix {
     }
 
     public void swapRows(int rowOne, int rowTwo) {
+        if (rowOne < 1 || rowOne > matrixSize) {
+            throw new IndexOutOfBoundsException("Invalid row index: " + rowOne);
+        }
+        if (rowTwo < 1 || rowTwo > matrixSize) {
+            throw new IndexOutOfBoundsException("Invalid column index: " + rowTwo);
+        }
+
+        rowOne--;
+        rowTwo--;
         LinearEquation temp = matrix[rowOne];
         matrix[rowOne] = matrix[rowTwo];
         matrix[rowTwo] = temp;
+    }
+    public void swapColumns(int rowOne, int rowTwo) {
+
+    }
+}
+interface Command {
+    void execute();
+    void undo();
+}
+
+class SwapColumns implements Command {
+    Matrix matrix;
+
+    private int colOne;
+    private int colTwo;
+
+    public SwapColumns(Matrix matrix, int colOne, int colTwo) {
+        this.matrix = matrix;
+        this.colOne = colOne;
+        this.colTwo = colTwo;
+    }
+
+    @Override
+    public void execute() {
+        matrix.swapColumns(colOne, colTwo);
+    }
+
+    @Override
+    public void undo() {
+        matrix.swapRows(colOne, colTwo);
     }
 }
