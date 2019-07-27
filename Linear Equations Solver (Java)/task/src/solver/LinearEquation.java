@@ -96,6 +96,15 @@ class LinearEquation {
         }
     }
 
-
+    public boolean isContradicted() {
+        if (getConstantTerm() != 0.0){
+            for (int coeff = 1; coeff < equationLength - 1; coeff++) {
+                if(getTerm(coeff) != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 }

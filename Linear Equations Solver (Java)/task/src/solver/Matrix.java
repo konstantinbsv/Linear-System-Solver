@@ -133,7 +133,17 @@ class Matrix {
             matrix[row].setTerm(colTwo, temp);
         }
     }
+    public boolean isContradicted() {
+        for (int row = 1; row < matrixSize; row++) {
+            if(matrix[row].isContradicted()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
+
 interface Command {
     boolean execute();
     boolean undo();
@@ -181,4 +191,5 @@ class CommandHistory {
     public static boolean isCommandHistoryEmpty() {
         return commandHistory.isEmpty();
     }
+
 }

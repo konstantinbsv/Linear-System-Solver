@@ -57,6 +57,7 @@ public class Main {
                     if (colToSwap == -1) {
                         // no more columns with non-zero elements
                         System.out.println("No more columns with non-zero elements");
+                        break;
                     } else {
                         executeCommand(new SwapColumns(system, pivot, colToSwap));
                     }
@@ -86,6 +87,10 @@ public class Main {
 
         System.out.println("-----Row Echelon----");
         system.print();
+        if (system.isContradicted()) {
+            System.out.println("No solutions");
+            return;
+        }
         System.out.println("-----Performing Gauss-Jordan elimination----");
 
         // perform Gauss-Jordan elimination for Reduced Row Echelon Form
