@@ -26,6 +26,14 @@ class LinearEquation {
         return equation[i-1];
     }
 
+    protected void setTerm(int i, double newTerm) {
+        if (i < 1 || i > equationLength-1) { // can't set constants
+            throw new IndexOutOfBoundsException("Invalid term index: " + i);
+        }
+
+        equation[i] = newTerm;
+    }
+
     public double getConstantTerm() {
         return equation[equationLength-1];
     }
