@@ -111,8 +111,12 @@ class Matrix {
         matrix[rowOne] = matrix[rowTwo];
         matrix[rowTwo] = temp;
     }
-    public void swapColumns(int rowOne, int rowTwo) {
-
+    public void swapColumns(int colOne, int colTwo) {
+        for (int row = 1; row < matrixSize; row++) {
+            double temp = matrix[row].getTerm(colOne);
+            matrix[row].setTerm(colOne, matrix[row].getTerm(colTwo));
+            matrix[row].setTerm(colTwo, temp);
+        }
     }
 }
 interface Command {
