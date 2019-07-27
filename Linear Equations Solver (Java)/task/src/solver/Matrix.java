@@ -132,9 +132,9 @@ class Matrix {
             matrix[row].setCoeff(colTwo, temp);
         }
     }
-    public boolean isConsistent() {
-        for (int row = 1; row < matrixSize; row++) {
-            if(matrix[row].isConsistent()) {
+    public boolean isInconsistent() {
+        for (int row = 0; row < matrixSize-1; row++) {
+            if(matrix[row].isInconsistent()) {
                 return true;
             }
         }
@@ -148,6 +148,7 @@ class Matrix {
                 numOfFreeVariables--;
             }
         }
+        return numOfFreeVariables;
     }
 }
 

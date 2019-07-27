@@ -96,22 +96,20 @@ class LinearEquation {
         }
     }
 
-    public boolean isConsistent() {
-        if (getConstantTerm() == 0) {
-            return true;
+    public boolean isInconsistent() {
+        if (getConstantTerm() == 0) { // e.g. 1 0 4 | 0
+            return false;
         } else {
-            for (int coeff = 1; coeff < equationLength - 1; coeff++) {
-                if(getTerm(coeff) != 0) {
-                    return true;
-                }
+            if(hasNonZeroCoeffs()) { // e.g. 0 3 0 | 5
+                    return false;
             }
         }
-        return false;
+        return true; // e.g. 0 0 0 | 5
     }
 
     public boolean hasNonZeroCoeffs() {
-        for (double term: equation) {
-            if (term != 0) {
+        for (int i = 0; i < equationLength-1; i++) { // equationLength-1, do not include constant term
+            if (equation[i] != 0) {
                 return true;
             }
         }
