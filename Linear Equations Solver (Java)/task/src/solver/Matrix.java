@@ -2,7 +2,6 @@ package solver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -129,13 +128,13 @@ class Matrix {
     public void swapColumns(int colOne, int colTwo) {
         for (int row = 1; row < matrixSize; row++) {
             double temp = matrix[row].getTerm(colOne);
-            matrix[row].setTerm(colOne, matrix[row].getTerm(colTwo));
-            matrix[row].setTerm(colTwo, temp);
+            matrix[row].setCoeff(colOne, matrix[row].getTerm(colTwo));
+            matrix[row].setCoeff(colTwo, temp);
         }
     }
-    public boolean isContradicted() {
+    public boolean isConsistent() {
         for (int row = 1; row < matrixSize; row++) {
-            if(matrix[row].isContradicted()) {
+            if(matrix[row].isConsistent()) {
                 return true;
             }
         }
