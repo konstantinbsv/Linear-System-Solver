@@ -522,7 +522,7 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="false" />
+                                <option name="highlightErrors" value="true" />
                                 <option name="name" value="src/solver/Main.java" />
                                 <option name="text" value="package solver;&#10;import java.util.Scanner;&#10;&#10;public class Main {&#10;    public static void main(String[] args) {&#10;        Scanner scanner = new Scanner(System.in);&#10;&#10;        //y = a*x + b&#10;        double a = scanner.nextDouble();&#10;        double b = scanner.nextDouble();&#10;        double c = scanner.nextDouble();&#10;&#10;        double d = scanner.nextDouble();&#10;        double e = scanner.nextDouble();&#10;        double f = scanner.nextDouble();&#10;&#10;        double y = (f - c*d/a)/(e - b*d/a);&#10;        double x = (c - b*y)/a;&#10;&#10;        System.out.print(x + &quot; &quot; + y);&#10;    }&#10;}&#10;" />
                                 <option name="trackChanges" value="true" />
@@ -550,7 +550,7 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="false" />
+                                <option name="highlightErrors" value="true" />
                                 <option name="name" value="src/solver/Matrix.java" />
                                 <option name="text" value="" />
                                 <option name="trackChanges" value="true" />
@@ -564,7 +564,7 @@
                                 <option name="answerPlaceholders">
                                   <list />
                                 </option>
-                                <option name="highlightErrors" value="false" />
+                                <option name="highlightErrors" value="true" />
                                 <option name="name" value="src/solver/LinearEquation.java" />
                                 <option name="text" value="" />
                                 <option name="trackChanges" value="true" />
