@@ -31,7 +31,7 @@ class LinearEquation {
             throw new IndexOutOfBoundsException("Invalid term index: " + i);
         }
 
-        equation[i] = newTerm;
+        equation[i-1] = newTerm;
     }
 
     public double getConstantTerm() {

@@ -99,8 +99,10 @@ class Matrix {
         return -1; // returns -1 if not row found
     }
 
-    public int findLeadingNonZeroCol() {
-        for (int col = 1; col <= matrixSize; col++) {
+
+
+    public int findLeadingNonZeroCol(int fromCol) {
+        for (int col = fromCol; col <= matrixSize; col++) {
             if (-1 != findNonZeroRowInCol(col)) {
                 return col;
             }
