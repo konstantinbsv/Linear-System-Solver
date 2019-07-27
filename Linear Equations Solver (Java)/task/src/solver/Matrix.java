@@ -96,4 +96,10 @@ class Matrix {
         }
         return -1; // returns -1 if not row found
     }
+
+    public void swapRows(int rowOne, int rowTwo) {
+        LinearEquation temp = matrix[rowOne];
+        matrix[rowOne] = matrix[rowTwo];
+        matrix[rowTwo] = temp;
+    }
 }
