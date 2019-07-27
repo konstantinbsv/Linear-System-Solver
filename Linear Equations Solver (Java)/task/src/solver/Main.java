@@ -24,7 +24,7 @@ public class Main {
         System.out.println("-----Performing Gaussian elimination----");
 
         // find row with leading non-zero element
-        int leadingRow = system.findFirstNonZeroRow();
+        int leadingRow = system.findLeadingNonZeroRow();
 
         // if all columns and rows are zeros
         if (leadingRow == -1) {
@@ -36,14 +36,24 @@ public class Main {
                 System.out.println("No solutions");
             }
             return;
+        } else if (leadingRow > 1) {
+            system.swapRows(1, leadingRow);
         }
 
         // Get Row Echelon Form through Gaussian elimination
-        for (int pivot =1 ; pivot <= system.getMatrixSize(); pivot++) {
+        for (int pivot = 1 ; pivot <= system.getMatrixSize(); pivot++) {
 
-            //
+            // if pivot is zero, swap with another row that has non-zero element in that location
             if (system.getTerm(pivot, pivot) == 0) {
+                int newRow = system.findNonZeroRowInCol(pivot);
 
+                // if there are no non-zero terms in this column
+                if (newRow == -1) {
+                    // find element in next column and swap columns
+                    
+                } else {
+                    system.swapRows(pivot, newRow);
+                }
             }
 
             // multiply pivot by factor that makes it =1
