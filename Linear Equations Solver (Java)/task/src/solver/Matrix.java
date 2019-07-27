@@ -140,6 +140,15 @@ class Matrix {
         }
         return false;
     }
+
+    public int numOfFreeVariables() {
+        int numOfFreeVariables = matrixSize;
+        for (LinearEquation equation: matrix) {
+            if (equation.hasNonZeroCoeffs()) {
+                numOfFreeVariables--;
+            }
+        }
+    }
 }
 
 
