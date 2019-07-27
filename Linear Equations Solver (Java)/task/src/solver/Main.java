@@ -50,7 +50,7 @@ public class Main {
                 // if there are no non-zero terms in this column
                 if (newRow == -1) {
                     // find element in next column and swap columns
-                    
+
                 } else {
                     system.swapRows(pivot, newRow);
                 }
@@ -107,5 +107,15 @@ public class Main {
     private static void printRowOp(int currentColumn, int currentRow, double factor) {
         System.out.print(factor < 0 ? "-" : " "); // neater formatting
         System.out.printf("%.2f * R%d + R%d -> R%d\n", Math.abs(factor), currentColumn, currentRow, currentRow);
+    }
+
+    private static void executeCommand(Command command) {
+        if (command.execute()) {
+            CommandHistory.push(command);
+        }
+    }
+
+    private static void undoCommand() {
+        CommandHistory.pop().undo();
     }
 }
