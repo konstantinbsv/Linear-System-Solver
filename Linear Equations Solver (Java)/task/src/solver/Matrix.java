@@ -86,12 +86,21 @@ class Matrix {
         return -1; // returns -1 if not row found
     }
 
-    public int findFirstNonZeroRow() {
+    public int findLeadingNonZeroRow() {
         int row;
         for (int col = 1; col <= matrixSize; col++) {
             row = findNonZeroRowInCol(col);
             if (row != -1) {
                 return row;
+            }
+        }
+        return -1; // returns -1 if not row found
+    }
+
+    public int findLeadingNonZeroCol() {
+        for (int col = 1; col <= matrixSize; col++) {
+            if (-1 != findNonZeroRowInCol(col)) {
+                return col;
             }
         }
         return -1; // returns -1 if not row found
