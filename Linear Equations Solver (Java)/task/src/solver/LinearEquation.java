@@ -26,7 +26,7 @@ class LinearEquation {
         return equation[i-1];
     }
 
-    protected void setTerm(int i, double newTerm) {
+    protected void setCoeff(int i, double newTerm) {
         if (i < 1 || i > equationLength-1) { // can't set constants
             throw new IndexOutOfBoundsException("Invalid term index: " + i);
         }
@@ -96,15 +96,25 @@ class LinearEquation {
         }
     }
 
-    public boolean isContradicted() {
-        if (getConstantTerm() != 0.0){
+    public boolean isConsistent() {
+        if (getConstantTerm() == 0) {
+            return true;
+        } else {
             for (int coeff = 1; coeff < equationLength - 1; coeff++) {
                 if(getTerm(coeff) != 0) {
-                    return false;
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
+    public boolean hasNonZeroCoeffs() {
+        for (double term: equation) {
+            if (term != 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
