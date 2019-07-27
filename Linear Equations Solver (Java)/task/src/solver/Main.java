@@ -44,27 +44,32 @@ public class Main {
         // Get Row Echelon Form through Gaussian elimination
         for (int pivot = 1 ; pivot <= system.getMatrixSize(); pivot++) {
 
-            // if pivot is zero, swap with another row that has non-zero element in that location
+            // if pivot is zero, swap with another row that has non-zero element in that column
             if (system.getTerm(pivot, pivot) == 0) {
                 int newRow = system.findNonZeroRowInCol(pivot);
+                System.out.println("newRow = " + newRow);
 
                 // if there are no non-zero terms in this column
                 if (newRow == -1) {
                     // find element in next column and swap columns
-                    int rowToSwap = system.findLeadingNonZeroCol();
-                    if (rowToSwap == -1) {
+                    int colToSwap = system.findLeadingNonZeroCol(pivot);
+                    System.out.println("colToSwap = " + colToSwap);
+                    if (colToSwap == -1) {
                         // no more columns with non-zero elements
                         System.out.println("No more columns with non-zero elements");
                     } else {
-                        executeCommand(new SwapColumns(system, pivot, rowToSwap));
+                        executeCommand(new SwapColumns(system, pivot, colToSwap));
                     }
                 } else {
                     system.swapRows(pivot, newRow);
                 }
             }
+            // print matrix
+            system.print();
 
             // multiply pivot by factor that makes it =1
             double normalizationFactor = 1/system.getTerm(pivot, pivot);
+            System.out.println("normalizationFactor = " + normalizationFactor);
             system.getRow(pivot).multiplyRowAndSave(normalizationFactor);
             System.out.print(normalizationFactor <0 ? "-":" "); // neater formatting
             System.out.printf("%.2f * R%d -> R%d\n", Math.abs(normalizationFactor), pivot, pivot);

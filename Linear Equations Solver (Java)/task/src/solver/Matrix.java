@@ -99,7 +99,9 @@ class Matrix {
         return -1; // returns -1 if not row found
     }
 
-
+    public int findLeadingNonZeroCol(){
+        return findLeadingNonZeroCol(1);
+    }
 
     public int findLeadingNonZeroCol(int fromCol) {
         for (int col = fromCol; col <= matrixSize; col++) {
@@ -152,6 +154,8 @@ class SwapColumns implements Command {
     @Override
     public boolean execute() {
         matrix.swapColumns(colOne, colTwo);
+        System.out.println("Command pushed executed");
+
         return true;
     }
 
@@ -167,6 +171,7 @@ class CommandHistory {
 
     public static void push(Command command) {
         commandHistory.push(command);
+        System.out.println("Command pushed to stack");
     }
 
     public static Command pop() {
