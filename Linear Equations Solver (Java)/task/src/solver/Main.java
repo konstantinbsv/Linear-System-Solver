@@ -48,7 +48,6 @@ public class Main {
             // if pivot is zero, swap with another row that has non-zero element in that column
             if (system.getTerm(pivot, pivot) == 0) {
                 int newRow = system.findNonZeroRowInCol(pivot);
-                System.out.println("newRow = " + newRow);
 
                 // if there are no non-zero terms in this column
                 if (newRow == -1) {
@@ -66,12 +65,10 @@ public class Main {
                     system.swapRows(pivot, newRow);
                 }
             }
-            // print matrix
-            system.print();
 
             // multiply pivot by factor that makes it =1
             double normalizationFactor = 1/system.getTerm(pivot, pivot);
-            System.out.println("normalizationFactor = " + normalizationFactor);
+            // System.out.printf("normalizationFactor = %.2f\n", normalizationFactor);
             system.getRow(pivot).multiplyRowAndSave(normalizationFactor);
             System.out.print(normalizationFactor <0 ? "-":" "); // neater formatting
             System.out.printf("%.2f * R%d -> R%d\n", Math.abs(normalizationFactor), pivot, pivot);
