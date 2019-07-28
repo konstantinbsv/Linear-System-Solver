@@ -146,7 +146,7 @@ class Matrix {
         }
     }
     public boolean isInconsistent() {
-        for (int row = 0; row < matrixNumOfEquations-1; row++) {
+        for (int row = 0; row < matrixNumOfEquations; row++) {
             if(matrix[row].isInconsistent()) {
                 return true;
             }
