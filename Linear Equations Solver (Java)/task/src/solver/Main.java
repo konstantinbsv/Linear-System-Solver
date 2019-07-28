@@ -112,12 +112,12 @@ public class Main {
         system.print();
 
         System.out.println("-----Final Result----");
-        system.printConstantTerms(true);
+        system.printResults(true);
 
         // Save results to file
         File outputFile = new File(args[3]);
         try (PrintWriter printWriter = new PrintWriter(outputFile)) {
-            for (int row = 1; row <= system.getMatrixNumOfEquations(); row++) {
+            for (int row = 1; row <= system.getMatrixNumOfVariables(); row++) {
                 printWriter.print(system.getRow(row).getConstantTerm());
                 printWriter.println();
             }
