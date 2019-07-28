@@ -71,8 +71,8 @@ class Matrix {
         }
     }
 
-    public void printConstantTerms(boolean verticalVectorOutput) {
-        for (int row = 1; row <= matrixNumOfEquations; row++) {
+    public void printResults(boolean verticalVectorOutput) {
+        for (int row = 1; row <= matrixNumOfVariables; row++) {
             System.out.print(this.getRow(row).getConstantTerm());
             if (verticalVectorOutput) {
                 System.out.println();
@@ -155,7 +155,7 @@ class Matrix {
     }
 
     public int numOfFreeVariables() {
-        int numOfFreeVariables = matrixNumOfEquations;
+        int numOfFreeVariables = matrixNumOfVariables;
         for (LinearEquation equation: matrix) {
             if (equation.hasNonZeroCoeffs()) {
                 numOfFreeVariables--;
