@@ -92,7 +92,7 @@ class Matrix {
     }
 
     public int findNonZeroRowInCol(int column) {
-        for (int row = 1; row <= matrixNumOfEquations; row++) {
+        for (int row = column; row <= matrixNumOfEquations; row++) { // look below current row
             if (getTerm(row, column) != 0) {
                 return row;
             }
