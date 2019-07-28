@@ -27,7 +27,7 @@ class Matrix {
 
             matrix = new LinearEquation[matrixNumOfEquations];
 
-            for (int i = 0; i < matrixNumOfVariables; i++) {
+            for (int i = 0; i < matrixNumOfEquations    ; i++) {
                 matrix[i] = new LinearEquation(matrixNumOfVariables); // initialize LE
                 matrix[i].fillEquationFromScanner(scanner);  // fill from file
             }
