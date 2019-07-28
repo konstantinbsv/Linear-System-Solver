@@ -6,20 +6,29 @@ import java.util.Scanner;
 import java.util.Stack;
 
 class Matrix {
-    private int matrixSize;
+    private int matrixNumOfVariables;
+    private int matrixNumOfEquations;
     private LinearEquation[] matrix;
 
     public Matrix(File inputFile) {
         try (Scanner scanner = new Scanner(inputFile)) {
-            matrixSize = scanner.nextInt(); // first line of file is matrix size
-            if (matrixSize < 1) {
-                throw new IndexOutOfBoundsException("Invalid matrix size: " + matrixSize);
+
+            String[] firstLine = scanner.nextLine().split(" ");
+            matrixNumOfVariables = Integer.parseInt(firstLine[0]); // integer  of file is number of variables
+            if (firstLine.length == 2) {
+                matrixNumOfEquations = Integer.parseInt(firstLine[1]); // second integer is number of variables
+            } else {
+                matrixNumOfEquations = matrixNumOfVariables;
             }
 
-            matrix = new LinearEquation[matrixSize];
+            if (matrixNumOfVariables < 1) {
+                throw new IndexOutOfBoundsException("Invalid matrix size: " + matrixNumOfVariables);
+            }
 
-            for (int i = 0; i < matrixSize; i++) {
-                matrix[i] = new LinearEquation(matrixSize); // initialize LE
+            matrix = new LinearEquation[matrixNumOfEquations];
+
+            for (int i = 0; i < matrixNumOfVariables; i++) {
+                matrix[i] = new LinearEquation(matrixNumOfVariables); // initialize LE
                 matrix[i].fillEquationFromScanner(scanner);  // fill from file
             }
 
@@ -28,12 +37,16 @@ class Matrix {
         }
     }
 
-    public int getMatrixSize() {
-        return matrixSize;
+    public int getMatrixNumOfVariables() {
+        return matrixNumOfVariables;
+    }
+
+    public int getMatrixNumOfEquations() {
+        return matrixNumOfEquations;
     }
 
     public LinearEquation getRow(int row) {
-        if (row < 1 || row > matrixSize) {
+        if (row < 1 || row > matrixNumOfEquations) {
             throw new IndexOutOfBoundsException("Invalid row index: " + row);
         }
 
@@ -41,10 +54,10 @@ class Matrix {
     }
 
     public double getTerm(int row, int column) {
-        if (row < 1 || row > matrixSize) {
+        if (row < 1 || row > matrixNumOfEquations) {
             throw new IndexOutOfBoundsException("Invalid row index: " + row);
         }
-        if (column < 1 || column > matrixSize) {
+        if (column < 1 || column > matrixNumOfVariables) {
             throw new IndexOutOfBoundsException("Invalid column index: " + column);
         }
 
@@ -52,14 +65,14 @@ class Matrix {
     }
 
     public void print() {
-        for (int i = 0; i < matrixSize; i++) {
+        for (int i = 0; i < matrixNumOfEquations; i++) {
             matrix[i].print();
             System.out.println();
         }
     }
 
     public void printConstantTerms(boolean verticalVectorOutput) {
-        for (int row = 1; row <= matrixSize; row++) {
+        for (int row = 1; row <= matrixNumOfEquations; row++) {
             System.out.print(this.getRow(row).getConstantTerm());
             if (verticalVectorOutput) {
                 System.out.println();
@@ -71,15 +84,15 @@ class Matrix {
     }
 
     public double[] getConstantTermsArray() {
-        double[] constantTerms = new double[matrixSize];
-        for (int row = 1; row < matrixSize; row++) {
+        double[] constantTerms = new double[matrixNumOfEquations];
+        for (int row = 1; row < matrixNumOfEquations; row++) {
             constantTerms[row-1] = getRow(row).getConstantTerm();
         }
         return constantTerms;
     }
 
     public int findNonZeroRowInCol(int column) {
-        for (int row = 1; row <= matrixSize; row++) {
+        for (int row = 1; row <= matrixNumOfEquations; row++) {
             if (getTerm(row, column) != 0) {
                 return row;
             }
@@ -89,7 +102,7 @@ class Matrix {
 
     public int findLeadingNonZeroRow() {
         int row;
-        for (int col = 1; col <= matrixSize; col++) {
+        for (int col = 1; col <= matrixNumOfVariables; col++) {
             row = findNonZeroRowInCol(col);
             if (row != -1) {
                 return row;
@@ -103,7 +116,7 @@ class Matrix {
     }
 
     public int findLeadingNonZeroCol(int fromCol) {
-        for (int col = fromCol; col <= matrixSize; col++) {
+        for (int col = fromCol; col <= matrixNumOfVariables; col++) {
             if (-1 != findNonZeroRowInCol(col)) {
                 return col;
             }
@@ -112,10 +125,10 @@ class Matrix {
     }
 
     public void swapRows(int rowOne, int rowTwo) {
-        if (rowOne < 1 || rowOne > matrixSize) {
+        if (rowOne < 1 || rowOne > matrixNumOfEquations) {
             throw new IndexOutOfBoundsException("Invalid row index: " + rowOne);
         }
-        if (rowTwo < 1 || rowTwo > matrixSize) {
+        if (rowTwo < 1 || rowTwo > matrixNumOfEquations) {
             throw new IndexOutOfBoundsException("Invalid column index: " + rowTwo);
         }
 
@@ -126,14 +139,14 @@ class Matrix {
         matrix[rowTwo] = temp;
     }
     public void swapColumns(int colOne, int colTwo) {
-        for (int row = 1; row < matrixSize; row++) {
+        for (int row = 1; row < matrixNumOfVariables; row++) {
             double temp = matrix[row].getTerm(colOne);
             matrix[row].setCoeff(colOne, matrix[row].getTerm(colTwo));
             matrix[row].setCoeff(colTwo, temp);
         }
     }
     public boolean isInconsistent() {
-        for (int row = 0; row < matrixSize-1; row++) {
+        for (int row = 0; row < matrixNumOfEquations-1; row++) {
             if(matrix[row].isInconsistent()) {
                 return true;
             }
@@ -142,7 +155,7 @@ class Matrix {
     }
 
     public int numOfFreeVariables() {
-        int numOfFreeVariables = matrixSize;
+        int numOfFreeVariables = matrixNumOfEquations;
         for (LinearEquation equation: matrix) {
             if (equation.hasNonZeroCoeffs()) {
                 numOfFreeVariables--;

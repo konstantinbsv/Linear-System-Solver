@@ -41,7 +41,7 @@ public class Main {
         }
 
         // Get Row Echelon Form through Gaussian elimination
-        for (int pivot = 1 ; pivot <= system.getMatrixSize(); pivot++) {
+        for (int pivot = 1 ; pivot <= system.getMatrixNumOfVariables(); pivot++) {
 
             // if pivot is zero, swap with another row that has non-zero element in that column
             if (system.getTerm(pivot, pivot) == 0) {
@@ -76,7 +76,7 @@ public class Main {
 
 
             // Perform row ops to get all terms below it =0
-            for (int currentRow = pivot+1; currentRow <= system.getMatrixSize(); currentRow++) {
+            for (int currentRow = pivot+1; currentRow <= system.getMatrixNumOfEquations(); currentRow++) {
                 double factor = -system.getTerm(currentRow, pivot)/system.getTerm(pivot, pivot);
 
                 printRowOp(pivot, currentRow, factor);
@@ -100,7 +100,7 @@ public class Main {
         System.out.println("-----Performing Gauss-Jordan elimination----");
 
         // perform Gauss-Jordan elimination for Reduced Row Echelon Form
-        for (int currentColumn = system.getMatrixSize(); currentColumn > 0; currentColumn--) {
+        for (int currentColumn = system.getMatrixNumOfVariables(); currentColumn > 0; currentColumn--) {
             for (int currentRow = currentColumn - 1; currentRow > 0; currentRow--) {
                 double factor = -system.getTerm(currentRow, currentColumn);
 
@@ -117,7 +117,7 @@ public class Main {
         // Save results to file
         File outputFile = new File(args[3]);
         try (PrintWriter printWriter = new PrintWriter(outputFile)) {
-            for (int row = 1; row <= system.getMatrixSize(); row++) {
+            for (int row = 1; row <= system.getMatrixNumOfEquations(); row++) {
                 printWriter.print(system.getRow(row).getConstantTerm());
                 printWriter.println();
             }
