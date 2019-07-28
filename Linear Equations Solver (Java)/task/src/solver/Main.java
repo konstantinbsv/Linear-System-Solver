@@ -70,7 +70,7 @@ public class Main {
             double normalizationFactor = 1/system.getTerm(pivot, pivot);
             // System.out.printf("normalizationFactor = %.2f\n", normalizationFactor);
             system.getRow(pivot).multiplyRowAndSave(normalizationFactor);
-            System.out.print(normalizationFactor <0 ? "-":" "); // neater formatting
+            printNeatMinuses(normalizationFactor); // neater formatting
             System.out.printf("%.2f * R%d -> R%d\n", Math.abs(normalizationFactor), pivot, pivot);
 
 
@@ -153,8 +153,12 @@ public class Main {
     }
 
     private static void printRowOp(int currentColumn, int currentRow, double factor) {
-        System.out.print(factor < 0 ? "-" : " "); // neater formatting
+        printNeatMinuses(factor); // neater formatting
         System.out.printf("%.2f * R%d + R%d -> R%d\n", Math.abs(factor), currentColumn, currentRow, currentRow);
+    }
+
+    private static void printNeatMinuses(double factor) {
+        System.out.print(factor < 0 ? "-" : " ");
     }
 
     private static void executeCommand(Command command) {

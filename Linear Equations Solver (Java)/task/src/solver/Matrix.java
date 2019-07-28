@@ -73,7 +73,9 @@ class Matrix {
 
     public void printResults(boolean verticalVectorOutput) {
         for (int row = 1; row <= matrixNumOfVariables; row++) {
-            System.out.print(this.getRow(row).getConstantTerm());
+            double result = getRow(row).getConstantTerm();
+            System.out.print(result < 0 ? "-" : " ");
+            System.out.printf("%.3f", Math.abs(result));
             if (verticalVectorOutput) {
                 System.out.println();
             }
