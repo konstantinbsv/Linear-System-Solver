@@ -82,5 +82,6 @@ fabric.properties
 /Linear Equations Solver (Java)/task/build
 /Linear Equations Solver (Java)/task/test
 /*.txt
+/Linear Equations Solver (Java)/task/*.txt
 /Problems/
 .idea/
