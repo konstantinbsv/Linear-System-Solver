@@ -32,8 +32,10 @@ public class Main {
             double constantTermsSum = Arrays.stream(system.getConstantTermsArray()).sum();
             if (constantTermsSum == 0) {
                 System.out.println("Infinitely many solutions");
+                writeToFile(args[3], system, SystemResult.infiniteSolutions);
             } else {
                 System.out.println("No solutions");
+                writeToFile(args[3], system, SystemResult.noSolution);
             }
             return;
         } else if (leadingRow > 1) {
@@ -88,10 +90,14 @@ public class Main {
         system.print();
         if (system.isInconsistent()) {
             System.out.println("No solutions - inconsistent");
+            writeToFile(args[3], system, SystemResult.noSolution);
+
             return;
         }
         if (system.numOfFreeVariables() > 0) {
             System.out.printf("Infinitely many solutions - has %d free variables\n" , system.numOfFreeVariables());
+            writeToFile(args[3], system, SystemResult.infiniteSolutions);
+
             return;
         }
         //
@@ -113,18 +119,40 @@ public class Main {
 
         System.out.println("-----Final Result----");
         system.printResults(true);
+        writeToFile(args[3], system, SystemResult.solved);
+    }
 
+    private static void writeToFile(String filePath, Matrix system, SystemResult result) {
         // Save results to file
-        File outputFile = new File(args[3]);
+        File outputFile = new File(filePath);
         try (PrintWriter printWriter = new PrintWriter(outputFile)) {
-            for (int row = 1; row <= system.getMatrixNumOfVariables(); row++) {
-                printWriter.print(system.getRow(row).getConstantTerm());
-                printWriter.println();
+
+            switch (result) {
+                case solved:
+                    for (int row = 1; row <= system.getMatrixNumOfVariables(); row++) {
+                        printWriter.print(system.getRow(row).getConstantTerm());
+                        printWriter.println();
+                    }
+                    break;
+                case noSolution:
+                    printWriter.print("No solutions");
+                    break;
+                case infiniteSolutions:
+                    printWriter.print("Infinitely many solutions");
+                    break;
+                default:
+                    printWriter.print("Solution error");
             }
-            System.out.println("Results saved to: " + args[3]);
+            System.out.println("Results saved to: " + filePath);
         } catch (FileNotFoundException fileNotFound) {
             System.out.println("Output file exception: " + fileNotFound.getMessage());
         }
+    }
+
+    enum SystemResult {
+        solved,
+        noSolution,
+        infiniteSolutions,
     }
 
     private static void printRowOp(int currentColumn, int currentRow, double factor) {
