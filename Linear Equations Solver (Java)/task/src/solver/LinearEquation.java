@@ -34,6 +34,14 @@ class LinearEquation {
         equation[i-1] = newTerm;
     }
 
+    protected void setTerm(int i, ComplexNumber newTerm) {
+        if (i < 1 || i > equationLength) { // can set constants
+            throw new IndexOutOfBoundsException("Invalid term index: " + i);
+        }
+
+        equation[i-1] = newTerm;
+    }
+
     public ComplexNumber getConstantTerm() {
         return equation[equationLength-1];
     }
@@ -46,10 +54,10 @@ class LinearEquation {
         }
     }
 
-    public ComplexNumber[] multiplyRowTemp(ComplexNumber x) {
-        ComplexNumber[] result = new ComplexNumber[equationLength];
+    public LinearEquation multiplyRowTemp(ComplexNumber x) {
+        LinearEquation result = new LinearEquation(equationLength-1);
         for (int i = 0; i < equationLength; i++) {
-            result[i] = equation[i].multiplyBy(x);
+            result.setTerm(i, equation[i].multiplyBy(x));
         }
 
         return result;
@@ -96,7 +104,7 @@ class LinearEquation {
         for (int i = 0; i < equationLength; i++) {
             // System.out.print(equation[i] < 0 ? "-":" "); // neater formatting
             // System.out.printf("%.1f ", Math.abs(equation[i]));
-            System.out.println(equation[i].toString());
+            System.out.print(equation[i] + " ");
         }
     }
 
