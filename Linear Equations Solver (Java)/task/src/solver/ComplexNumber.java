@@ -17,8 +17,12 @@ public class ComplexNumber {
         this.imaginary = other.imaginary;
     }
 
-    public ComplexNumber(Scanner scanner) {
-
+    public ComplexNumber(String input) {
+        String pattern = "^(?=[iI.\\d+-])" +
+                "([+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)" +
+                "(?:[eE][+-]?\\d+)?(?![iI.\\d]))?([+-]?" +
+                "(?:(?:\\d+(?:\\.\\d*)?|\\.\\d+)" +
+                "(?:[eE][+-]?\\d+)?)?[iI])?$";
     }
 
     public double getReal() {
@@ -73,6 +77,10 @@ public class ComplexNumber {
         double resultReal      =    this.real;
         double resultImaginary =  - this.imaginary;
         return new ComplexNumber(resultReal, resultImaginary);
+    }
+
+    public boolean isZero() {
+        return this.real == 0 && this.imaginary == 0;
     }
 
     public boolean equals(ComplexNumber other) {
