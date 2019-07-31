@@ -79,6 +79,12 @@ public class ComplexNumber {
         return new ComplexNumber(resultReal, resultImaginary);
     }
 
+    public ComplexNumber negative() {
+        double resultReal      =  - this.real;
+        double resultImaginary =  - this.imaginary;
+        return new ComplexNumber(resultReal, resultImaginary);
+    }
+
     public boolean isZero() {
         return this.real == 0 && this.imaginary == 0;
     }
