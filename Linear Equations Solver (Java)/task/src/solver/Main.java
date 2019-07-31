@@ -29,8 +29,8 @@ public class Main {
         // if all columns and rows are zeros
         if (leadingRow == -1) {
             // are all constant terms zero too?
-            double constantTermsSum = Arrays.stream(system.getConstantTermsArray()).sum();
-            if (constantTermsSum == 0) {
+            ComplexNumber constantTermsSum = system.getConstantTermsSum();
+            if (constantTermsSum.isZero()) {
                 System.out.println("Infinitely many solutions");
                 writeToFile(args[3], system, SystemResult.infiniteSolutions);
             } else {
@@ -46,7 +46,7 @@ public class Main {
         for (int pivot = 1 ; pivot <= system.getMatrixNumOfVariables(); pivot++) {
 
             // if pivot is zero, swap with another row that has non-zero element in that column
-            if (system.getTerm(pivot, pivot) == 0) {
+            if (system.getTerm(pivot, pivot).isZero()) {
                 int newRow = system.findNonZeroRowInCol(pivot);
 
                 // if there are no non-zero terms in this column
@@ -67,16 +67,16 @@ public class Main {
             }
 
             // multiply pivot by factor that makes it =1
-            double normalizationFactor = 1/system.getTerm(pivot, pivot);
+            ComplexNumber normalizationFactor = system.getTerm(pivot, pivot).inverse();
             // System.out.printf("normalizationFactor = %.2f\n", normalizationFactor);
-            system.getRow(pivot).multiplyRowAndSave(normalizationFactor);
-            printNeatMinuses(normalizationFactor); // neater formatting
-            System.out.printf("%.2f * R%d -> R%d\n", Math.abs(normalizationFactor), pivot, pivot);
+            system.getRow(pivot).multiplyRowAndChange(normalizationFactor);
+            // printNeatMinuses(normalizationFactor); // neater formatting
+            System.out.printf("%s * R%d -> R%d\n", normalizationFactor, pivot, pivot);
 
 
             // Perform row ops to get all terms below it =0
             for (int currentRow = pivot+1; currentRow <= system.getMatrixNumOfEquations(); currentRow++) {
-                double factor = -system.getTerm(currentRow, pivot)/system.getTerm(pivot, pivot);
+                ComplexNumber factor = system.getTerm(currentRow, pivot).divideBy(system.getTerm(pivot, pivot)).negative();
 
                 printRowOp(pivot, currentRow, factor);
                 system.getRow(currentRow).addToRow(system.getRow(pivot).multiplyRowTemp(factor));
@@ -105,7 +105,7 @@ public class Main {
         // perform Gauss-Jordan elimination for Reduced Row Echelon Form
         for (int currentColumn = system.getMatrixNumOfVariables(); currentColumn > 0; currentColumn--) {
             for (int currentRow = currentColumn - 1; currentRow > 0; currentRow--) {
-                double factor = -system.getTerm(currentRow, currentColumn);
+                ComplexNumber factor = system.getTerm(currentRow, currentColumn).negative();
 
                 printRowOp(currentColumn, currentRow, factor);
                 system.getRow(currentRow).addToRow( system.getRow(currentColumn).multiplyRowTemp(factor) );
@@ -152,9 +152,9 @@ public class Main {
         infiniteSolutions,
     }
 
-    private static void printRowOp(int currentColumn, int currentRow, double factor) {
-        printNeatMinuses(factor); // neater formatting
-        System.out.printf("%.2f * R%d + R%d -> R%d\n", Math.abs(factor), currentColumn, currentRow, currentRow);
+    private static void printRowOp(int currentColumn, int currentRow, ComplexNumber factor) {
+        // printNeatMinuses(factor); // neater formatting
+        System.out.printf("%s * R%d + R%d -> R%d\n", factor, currentColumn, currentRow, currentRow);
     }
 
     private static void printNeatMinuses(double factor) {
