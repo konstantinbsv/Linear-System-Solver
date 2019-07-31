@@ -95,7 +95,7 @@ public class ComplexNumber {
 
     @Override
     public String toString() {
-        String positiveSign = this.imaginary > 0 ? "+" : "";
+        String positiveSign = this.imaginary >= 0 ? "+" : "";
         return Double.toString(this.real) + positiveSign + Double.toString(this.imaginary)+"i";
     }
 }
