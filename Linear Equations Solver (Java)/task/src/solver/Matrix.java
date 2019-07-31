@@ -53,7 +53,7 @@ class Matrix {
         return matrix[row-1];
     }
 
-    public double getTerm(int row, int column) {
+    public ComplexNumber getTerm(int row, int column) {
         if (row < 1 || row > matrixNumOfEquations) {
             throw new IndexOutOfBoundsException("Invalid row index: " + row);
         }
@@ -73,9 +73,10 @@ class Matrix {
 
     public void printResults(boolean verticalVectorOutput) {
         for (int row = 1; row <= matrixNumOfVariables; row++) {
-            double result = getRow(row).getConstantTerm();
-            System.out.print(result < 0 ? "-" : " ");
-            System.out.printf("%.3f", Math.abs(result));
+            ComplexNumber result = getRow(row).getConstantTerm();
+            // System.out.print(result < 0 ? "-" : " ");
+            // System.out.printf("%.3f", Math.abs(result));
+            System.out.println(result);
             if (verticalVectorOutput) {
                 System.out.println();
             }
@@ -85,17 +86,17 @@ class Matrix {
         }
     }
 
-    public double[] getConstantTermsArray() {
-        double[] constantTerms = new double[matrixNumOfEquations];
+    public ComplexNumber getConstantTermsSum() {
+        ComplexNumber constantTermsSum = new ComplexNumber(0, 0);
         for (int row = 1; row < matrixNumOfEquations; row++) {
-            constantTerms[row-1] = getRow(row).getConstantTerm();
+            constantTermsSum = constantTermsSum.add(getRow(row).getConstantTerm());
         }
-        return constantTerms;
+        return constantTermsSum;
     }
 
     public int findNonZeroRowInCol(int column) {
         for (int row = column; row <= matrixNumOfEquations; row++) { // look below current row
-            if (getTerm(row, column) != 0) {
+            if (!getTerm(row, column).isZero()) {
                 return row;
             }
         }
@@ -142,7 +143,7 @@ class Matrix {
     }
     public void swapColumns(int colOne, int colTwo) {
         for (int row = 1; row < matrixNumOfVariables; row++) {
-            double temp = matrix[row].getTerm(colOne);
+            ComplexNumber temp = matrix[row].getTerm(colOne);
             matrix[row].setCoeff(colOne, matrix[row].getTerm(colTwo));
             matrix[row].setCoeff(colTwo, temp);
         }
