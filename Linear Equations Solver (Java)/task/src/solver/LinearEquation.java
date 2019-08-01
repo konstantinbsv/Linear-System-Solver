@@ -56,8 +56,8 @@ class LinearEquation {
 
     public LinearEquation multiplyRowTemp(ComplexNumber x) {
         LinearEquation result = new LinearEquation(equationLength-1);
-        for (int i = 0; i < equationLength; i++) {
-            result.setTerm(i, equation[i].multiplyBy(x));
+        for (int i = 1; i <= equationLength; i++) {
+            result.setTerm(i, equation[i-1].multiplyBy(x));
         }
 
         return result;
