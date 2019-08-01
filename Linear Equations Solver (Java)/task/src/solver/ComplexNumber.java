@@ -16,8 +16,7 @@ public class ComplexNumber {
     }
 
     public ComplexNumber(ComplexNumber other) {
-        this.real      = other.real;
-        this.imaginary = other.imaginary;
+        this(other.real, other.imaginary);
     }
 
     public ComplexNumber(String input) {
@@ -122,14 +121,14 @@ public class ComplexNumber {
 
     @Override
     public String toString() {
-        String realString      = this.real == 0 ? ""  : Double.toString(this.real);
+        String realString      = this.real == 0 ? ""  : Double.toString(this.real + 0.0);
         String imaginaryString;
         if (this.imaginary == -1 || this.imaginary == 1) {
             imaginaryString = this.imaginary == 1 ? "i" : "-i";
         } else if (this.imaginary == 0) {
             imaginaryString = "";
         } else {
-            imaginaryString = this.imaginary == 0 ? "" : (Double.toString(this.imaginary) + "i");
+            imaginaryString = this.imaginary == 0 ? "" : (Double.toString(this.imaginary + 0.0) + "i");
         }
 
         String positiveSign = this.imaginary > 0 ? "+" : "";
@@ -144,13 +143,13 @@ public class ComplexNumber {
 
         // Real number string
         realString = this.real >= 0 ? " " : "-"; // to keep terms aligned when printing
-        realString +=  df.format(this.real < 0 ? -this.real : this.real); // print absolute value of ral
+        realString +=  df.format(this.real < 0 ? (-this.real + 0.0) : (this.real + 0.0) ); // print absolute value of ral
 
         // Imaginary number string
         if (this.imaginary == -1 || this.imaginary == 1) {
             imaginaryString = this.imaginary == 1 ? "i" : "-i";
         } else {
-            imaginaryString = df.format(this.imaginary) + "i";
+            imaginaryString = df.format(this.imaginary + 0.0) + "i";
         }
         String positiveSign = (this.imaginary >= 0) ? "+" : "";
 
