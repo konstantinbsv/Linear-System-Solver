@@ -77,9 +77,7 @@ class Matrix {
     public void printResults() {
         for (int row = 1; row <= matrixNumOfVariables; row++) {
             ComplexNumber result = getRow(row).getConstantTerm();
-            // System.out.print(result < 0 ? "-" : " ");
-            // System.out.printf("%.3f", Math.abs(result));
-            System.out.println(result.toString( false));
+            System.out.println(result.toString( "#0.000", false));
         }
     }
 

@@ -137,13 +137,16 @@ public class ComplexNumber {
         return realString + positiveSign + imaginaryString;
     }
 
-    public String toString(boolean printZeroTerms) {
-        DecimalFormat df = new DecimalFormat("#0.0");
+    public String toString(String decimalFormat, boolean printZeroTerms) {
+        DecimalFormat df = new DecimalFormat(decimalFormat);
         String realString;
         String imaginaryString;
 
+        // Real number string
+        realString = this.real >= 0 ? " " : "-"; // to keep terms aligned when printing
+        realString +=  df.format(this.real < 0 ? -this.real : this.real); // print absolute value of ral
 
-        realString =  df.format(this.real);
+        // Imaginary number string
         if (this.imaginary == -1 || this.imaginary == 1) {
             imaginaryString = this.imaginary == 1 ? "i" : "-i";
         } else {
@@ -160,8 +163,12 @@ public class ComplexNumber {
                 positiveSign = "";
             }
         }
-
         return realString + positiveSign + imaginaryString;
+    }
+
+    public String toString(boolean printZeroTerms){
+        String defaultFormat = "#0.0";
+        return toString(defaultFormat, printZeroTerms);
     }
 }
 class test {
