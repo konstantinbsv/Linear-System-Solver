@@ -118,8 +118,27 @@ public class ComplexNumber {
 
     @Override
     public String toString() {
-        String positiveSign = this.imaginary >= 0 ? "+" : "";
-        return Double.toString(this.real) + positiveSign + Double.toString(this.imaginary)+"i";
+        String realString      = this.real == 0 ? ""  : Double.toString(this.real);
+        String imaginaryString;
+        if (this.imaginary == -1 || this.imaginary == 1) {
+            imaginaryString = this.imaginary == 1 ? "i" : "-i";
+        } else if (this.imaginary == 0) {
+            imaginaryString = "";
+        } else {
+            imaginaryString = this.imaginary == 0 ? "" : (Double.toString(this.imaginary) + "i");
+        }
+
+        String positiveSign = this.imaginary > 0 ? "+" : "";
+
+        return realString + positiveSign + imaginaryString;
+    }
+
+    public String toString(int decimalPlaces, boolean printZeroTerms) {
+        String positiveSign    = this.imaginary > 0 ? "+" : "";
+        String realString      = (this.real == 0      && printZeroTerms) ? ""  : Double.toString(this.real);
+        String imaginaryString = (this.imaginary == 0 && printZeroTerms) ? ""  : (Double.toString(this.imaginary) +"i");
+
+        return realString + positiveSign + imaginaryString;
     }
 }
 class test {
