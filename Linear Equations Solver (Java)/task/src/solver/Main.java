@@ -54,7 +54,6 @@ public class Main {
                     int colToSwap = system.findLeadingNonZeroCol(pivot);
                     if (colToSwap == -1) {
                         // no more columns with non-zero elements
-                        System.out.println("No more columns with non-zero elements");
                         break;
                     } else {
                         executeCommand(new SwapColumns(system, pivot, colToSwap));
