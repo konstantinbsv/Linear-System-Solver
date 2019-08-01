@@ -1,6 +1,8 @@
 package solver;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ComplexNumber {
 
@@ -18,11 +20,32 @@ public class ComplexNumber {
     }
 
     public ComplexNumber(String input) {
-        String pattern = "^(?=[iI.\\d+-])" +
-                "([+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)" +
-                "(?:[eE][+-]?\\d+)?(?![iI.\\d]))?([+-]?" +
-                "(?:(?:\\d+(?:\\.\\d*)?|\\.\\d+)" +
-                "(?:[eE][+-]?\\d+)?)?[iI])?$";
+        String pattern = "^(?=[iI.\\d+-\\\\(])[\\(]?([+]?([-]?\\d*\\.?\\d*))??(([+])?([-]?\\d*\\.?\\d*)([i]))??[\\)]?$";
+
+        Pattern cn = Pattern.compile(pattern);
+        System.out.println("input = " + input);
+        Matcher matcher  = cn.matcher(input);
+
+        if (matcher.find()) {
+            // real number
+            if (matcher.group(2) == null) {
+                this.real = 0;
+            } else {
+                this.real = Double.parseDouble(matcher.group(2));
+            }
+
+            // imaginary number
+            if (matcher.group(6) == null) { // if no imaginary number
+                this.imaginary = 0;
+            }
+            else if (matcher.group(5) == null && matcher.group(6) != null) { // i
+                this.imaginary = 1;
+            } else if ("-".equals(matcher.group(5))) { // -i
+                this.imaginary = -1;
+            } else {
+                this.imaginary = Double.parseDouble(matcher.group(5));
+            }
+        }
     }
 
     public double getReal() {
@@ -101,7 +124,8 @@ public class ComplexNumber {
 }
 class test {
     public static void main(String[] args) {
-        ComplexNumber num1 = new ComplexNumber(3, 2);
+        // ComplexNumber num1 = new ComplexNumber(3, 2);
+        ComplexNumber num1 = new ComplexNumber("i");
         ComplexNumber num2 = new ComplexNumber(4, -3);
 
         System.out.println("num1 = " + num1);
