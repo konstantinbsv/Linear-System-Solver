@@ -2,6 +2,7 @@ package solver;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -66,23 +67,19 @@ class Matrix {
 
     public void print() {
         for (int i = 0; i < matrixNumOfEquations; i++) {
-            matrix[i].print();
+           for (int j = 1; j <= matrixNumOfVariables + 1; j++ ) {
+               System.out.print(matrix[i].getTerm(j).toString(true) + " ");
+           }
             System.out.println();
         }
     }
 
-    public void printResults(boolean verticalVectorOutput) {
+    public void printResults() {
         for (int row = 1; row <= matrixNumOfVariables; row++) {
             ComplexNumber result = getRow(row).getConstantTerm();
             // System.out.print(result < 0 ? "-" : " ");
             // System.out.printf("%.3f", Math.abs(result));
-            System.out.println(result);
-            if (verticalVectorOutput) {
-                System.out.println();
-            }
-            else {
-                System.out.print(" ");
-            }
+            System.out.println(result.toString( false));
         }
     }
 

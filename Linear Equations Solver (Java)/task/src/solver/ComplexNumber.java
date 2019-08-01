@@ -1,5 +1,6 @@
 package solver;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,7 +24,6 @@ public class ComplexNumber {
         String pattern = "^(?=[iI.\\d+-\\\\(])[\\(]?([+]?([-]?\\d*\\.?\\d*))??(([+])?([-]?\\d*\\.?\\d*)([i]))??[\\)]?$";
 
         Pattern cn = Pattern.compile(pattern);
-        System.out.println("input = " + input);
         Matcher matcher  = cn.matcher(input);
 
         if (matcher.find()) {
@@ -133,10 +133,29 @@ public class ComplexNumber {
         return realString + positiveSign + imaginaryString;
     }
 
-    public String toString(int decimalPlaces, boolean printZeroTerms) {
-        String positiveSign    = this.imaginary > 0 ? "+" : "";
-        String realString      = (this.real == 0      && printZeroTerms) ? ""  : Double.toString(this.real);
-        String imaginaryString = (this.imaginary == 0 && printZeroTerms) ? ""  : (Double.toString(this.imaginary) +"i");
+    public String toString(boolean printZeroTerms) {
+        DecimalFormat df = new DecimalFormat("#0.0");
+        String realString;
+        String imaginaryString;
+
+
+        realString =  df.format(this.real);
+        if (this.imaginary == -1 || this.imaginary == 1) {
+            imaginaryString = this.imaginary == 1 ? "i" : "-i";
+        } else {
+            imaginaryString = df.format(this.imaginary) + "i";
+        }
+        String positiveSign = (this.imaginary >= 0) ? "+" : "";
+
+        if (!printZeroTerms) {
+            if (this.real == 0) {
+                realString = "";
+            }
+            if (this.imaginary == 0) {
+                imaginaryString = "";
+                positiveSign = "";
+            }
+        }
 
         return realString + positiveSign + imaginaryString;
     }

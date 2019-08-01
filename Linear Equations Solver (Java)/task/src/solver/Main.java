@@ -68,10 +68,8 @@ public class Main {
 
             // multiply pivot by factor that makes it =1
             ComplexNumber normalizationFactor = system.getTerm(pivot, pivot).inverse();
-            // System.out.printf("normalizationFactor = %.2f\n", normalizationFactor);
             system.getRow(pivot).multiplyRowAndChange(normalizationFactor);
-            // printNeatMinuses(normalizationFactor); // neater formatting
-            System.out.printf("%s * R%d -> R%d\n", normalizationFactor, pivot, pivot);
+            System.out.printf("%s * R%d -> R%d\n", normalizationFactor.toString(false), pivot, pivot);
 
 
             // Perform row ops to get all terms below it =0
@@ -115,7 +113,7 @@ public class Main {
         system.print();
 
         System.out.println("-----Final Result----");
-        system.printResults(true);
+        system.printResults();
         writeToFile(args[3], system, SystemResult.solved);
     }
 
@@ -154,11 +152,7 @@ public class Main {
 
     private static void printRowOp(int currentColumn, int currentRow, ComplexNumber factor) {
         // printNeatMinuses(factor); // neater formatting
-        System.out.printf("%s * R%d + R%d -> R%d\n", factor, currentColumn, currentRow, currentRow);
-    }
-
-    private static void printNeatMinuses(double factor) {
-        System.out.print(factor < 0 ? "-" : " ");
+        System.out.printf("%s * R%d + R%d -> R%d\n", factor.toString(false), currentColumn, currentRow, currentRow);
     }
 
     private static void executeCommand(Command command) {
