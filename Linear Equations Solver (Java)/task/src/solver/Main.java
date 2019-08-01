@@ -3,7 +3,6 @@ package solver;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 public class Main {
 
@@ -68,16 +67,19 @@ public class Main {
 
             // multiply pivot by factor that makes it =1
             ComplexNumber normalizationFactor = system.getTerm(pivot, pivot).inverse();
-            system.getRow(pivot).multiplyRowAndChange(normalizationFactor);
-            System.out.printf("%s * R%d -> R%d\n", normalizationFactor.toString(false), pivot, pivot);
-
+            if (!normalizationFactor.isOne()) {
+                system.getRow(pivot).multiplyRowAndChange(normalizationFactor);
+                System.out.printf("%s * R%d -> R%d\n", normalizationFactor.toString(false), pivot, pivot);
+            }
 
             // Perform row ops to get all terms below it =0
             for (int currentRow = pivot+1; currentRow <= system.getMatrixNumOfEquations(); currentRow++) {
                 ComplexNumber factor = system.getTerm(currentRow, pivot).divideBy(system.getTerm(pivot, pivot)).negative();
 
-                printRowOp(pivot, currentRow, factor);
-                system.getRow(currentRow).addToRow(system.getRow(pivot).multiplyRowTemp(factor));
+                if (!factor.isZero()) {
+                    printRowOp(pivot, currentRow, factor);
+                    system.getRow(currentRow).addToRow(system.getRow(pivot).multiplyRowTemp(factor));
+                }
             }
         }
 
@@ -105,8 +107,10 @@ public class Main {
             for (int currentRow = currentColumn - 1; currentRow > 0; currentRow--) {
                 ComplexNumber factor = system.getTerm(currentRow, currentColumn).negative();
 
-                printRowOp(currentColumn, currentRow, factor);
-                system.getRow(currentRow).addToRow( system.getRow(currentColumn).multiplyRowTemp(factor) );
+                if (!factor.isZero()) {
+                    printRowOp(currentColumn, currentRow, factor);
+                    system.getRow(currentRow).addToRow(system.getRow(currentColumn).multiplyRowTemp(factor));
+                }
             }
         }
         System.out.println("-----Reduced Row Echelon----");

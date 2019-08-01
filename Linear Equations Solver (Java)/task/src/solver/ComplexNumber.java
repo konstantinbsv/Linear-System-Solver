@@ -112,6 +112,10 @@ public class ComplexNumber {
         return this.real == 0 && this.imaginary == 0;
     }
 
+    public boolean isOne() {
+        return this.real == 1 && this.imaginary == 0;
+    }
+
     public boolean equals(ComplexNumber other) {
         return (this.real == other.real) && (this.imaginary == other.imaginary);
     }
