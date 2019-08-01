@@ -69,7 +69,7 @@ class LinearEquation {
         }
 
         for (int i = 0; i < equationLength; i++) {
-            equation[i] = equation[i].add(secondEquation.getTerm(i));
+            equation[i] = equation[i].add(secondEquation.getTerm(i+1));
         }
     }
 
