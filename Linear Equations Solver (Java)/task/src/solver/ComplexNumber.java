@@ -38,7 +38,7 @@ public class ComplexNumber {
             if (matcher.group(6) == null) { // if no imaginary number
                 this.imaginary = 0;
             }
-            else if (matcher.group(5) == null && matcher.group(6) != null) { // i
+            else if ("".equals(matcher.group(5)) && matcher.group(6) != null) { // i
                 this.imaginary = 1;
             } else if ("-".equals(matcher.group(5))) { // -i
                 this.imaginary = -1;
